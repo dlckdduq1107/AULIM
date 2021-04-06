@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>time_table</title>
+    <style>
+        body{
+            padding-top: 70px;
+        }
+        .container{
+            display: flex;
+            flex-direction:column;
+
+        }
+        header{
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        h1{
+            color: white;
+            line-height: 10px;
+            float: left;
+            padding-left: 15px;
+        }
+        .menu{
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            
+        }
+        .menu li{
+            float: left;
+        }
+        .menu a{
+            color: white;
+            padding: 1rem 5rem;
+            display: block;
+        }
+        li{
+            list-style: none;
+        }
+        ul{
+            margin-right: 100px;
+        }
+        a{
+            text-decoration: none;
+        }
+        footer{
+            border-top:1px solid gray;
+            padding:20px;
+            text-align: center;
+        }
+        .content{
+            display: flex;
+            ali
+        }
+        .content nav{
+            border-right:1px solid gray;
+        }
+        .content aside{
+            border-left:1px solid gray;    
+        }
+        nav, aside{
+            flex-basis: 5px;
+            flex-shrink: 0;
+        }
+        main{
+            padding:10px;
+            flex-basis: 50rem;
+/*            flex-shrink: 0;*/
+        }
+        .top_bar{
+            background-color: cornflowerblue;
+            color: white;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 50px;
+/*            text-align: center;*/
+            padding: 10px;
+            margin: 0 auto;
+        }
+        .title{
+            padding-bottom: 20px;
+            display: flex;
+        }
+        .button{
+            margin-left: 3rem;
+            margin-top: 1rem;
+        }
+        .acolunm{
+            border: 1px solid gray;
+            text-align: center;
+        }
+        table th, table td{
+            border: 1px solid gray;
+            word-wrap: break-word;
+        }
+        table tr{
+            border: 1px solid gray;
+            word-wrap: break-word;
+            height: 5rem;
+        }
+        table{
+            border-collapse: collapse;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            table-layout: fixed;
+        }
+        
+        
+    </style>
+    
+</head>
+<body>
+   <div class="container">
+       <header>
+           <div class="top_bar">
+              <h1>AULIM</h1>
+              <nav>
+                  <ul class="menu">
+                      <li><a href="#">HOME</a></li>
+                      <li><a href="#">HOME</a></li>
+                      <li><a href="#">HOME</a></li>
+                      <li><a href="#">HOME</a></li>
+                  </ul>
+              </nav>
+          </div>
+       </header>
+       <div class="title">
+         <div style="font-size: 3rem;">time_table</div>
+         <div class="button">
+             <div><input type="radio" name="table" value="base" checked="checked"> 기본 시간표 보기</div>
+              <div><input type="radio" name="table" value="add"> 추가일정 포함한 시간표 보기</div>
+         </div>
+       </div>
+       
+       
+       <section class="content">
+         <nav>
+             asdasdsdasd
+         </nav>
+          <main>
+            <div class="main_table">
+                <table>
+                   <colgroup>
+                       <col width="*" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                   </colgroup>
+                   
+                    <thead>
+                       <tr>
+                           <th>교시/요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>   
+                       </tr>  
+                    </thead>
+
+                    <tbody>
+                       <tr>
+                           <td>09:00</td><td>asdasd</td><td>asdasdsadasdasdasdasdasdsadsadasdasa</td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>10:00</td><td>asdasdasdasdsadasdasdasdsadasdasdasdasdasdasdasd</td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>11:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>12:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>13:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>15:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>16:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>17:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>18:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>19:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>20:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>21:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>22:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>23:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>24:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                    </tbody>
+    
+                </table>
+            </div>
+    
+          </main>
+          
+          <aside>
+              ad
+          </aside>
+           
+       </section>
+       <footer>
+           html
+       </footer>
+   </div>
+    
+</body>
+</html>
