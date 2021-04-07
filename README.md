@@ -1,6 +1,6 @@
-#aulim
+# aulim
 
-##Development
+## Development
 - 모든 dependency 설치
 ```
 npm install
