@@ -1,0 +1,61 @@
+/*상단바*/
+body{
+    padding-top: 70px;
+}
+.container{
+    display: flex;
+    flex-direction:column;
+}
+header{
+    height: 70px;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.menu{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+.menu li{
+    float: left;
+}
+.menu a{
+    color: white;
+    padding: 1rem 5rem;
+    display: block;
+}
+.top_bar{
+    background-color: cornflowerblue;
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 50px;
+/*            text-align: center;*/
+    padding: 10px;
+    margin: 0 auto;
+}
+h1{
+    color: white;
+    line-height: 10px;
+    float: left;
+    padding-left: 15px;
+}
+
+
+/*테이블*/
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width : 200px;
+    height: 3px;
+}
+th, td {
+    padding: 3px;
+}
+th {
+    text-align: center;
+}
