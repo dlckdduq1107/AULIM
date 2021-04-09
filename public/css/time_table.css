@@ -18,6 +18,13 @@ h1{
     float: left;
     padding-left: 15px;
 }
+#logo {
+    color: white;
+    line-height: 10px;
+    float: left;
+    padding-left: 15px;
+    
+}
 .menu{
     list-style-type: none;
     margin: 0;
