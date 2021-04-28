@@ -2,6 +2,10 @@
 const express = require('express');
 const app = express();
 const path = require ('path');
+var db_config = require(__dirname + '\\database.js');
+var conn = db_config.init();
+
+db_config.connect(conn);
 
 app.use(express.static(path.join(__dirname + '/public')));
 app.engine('html', require('ejs').renderFile);
