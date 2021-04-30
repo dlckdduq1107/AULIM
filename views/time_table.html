@@ -15,14 +15,31 @@
               <h1><a href="/" id="logo">AULIM</a></h1>
               <nav>
                   <ul class="menu">
-                      <li><a href="/activity_stream">스트림</a></li>
-                      <li><a href="/">시간표</a></li>
-                      <li><a href="/Group">공강시간</a></li>
-                      <li><a href="/schedule">계획표 추천</a></li>
-                  </ul>
+                    <li><a href="/activity_stream">스트림</a></li>
+                    <li><a href="/">시간표</a></li>
+                    <li><a href="/Group">공강시간</a></li>
+                    <li><a href="/schedule">계획표 추천</a></li>
+                    <li><a href="/memo">강의 메모</a></li>
+
+                    <div class="login_box">
+                        <form class="login_form" action="login_check" method="post"> 
+                            <label for="username">ID</label>
+                            <input id="user_id" name="userid" type="text"/>
+                            <label for="userpw">PW</label>
+                            <input id="user_pw" name="userpw" type="password"/>
+                            <button type="submit">Login</button>
+                        <button type="button" onclick="location.href='/register'">Register</button>
+                        <a href="/logout">Logout</a>
+                        </form>
+                    </div>
+                    <div class="login_button">
+                        
+                    </div>
+                  </ul>   
               </nav>
           </div>
        </header>
+
        <div class="title">
          <div style="font-size: 3rem;">time_table</div>
          <div class="button">
