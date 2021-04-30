@@ -2,18 +2,40 @@
 const express = require('express');
 const app = express();
 const path = require ('path');
+const cookieParser = require('cookie-parser');
+const expressSession = require('express-session');
 var db_config = require(__dirname + '\\database.js');
 var conn = db_config.init();
 
 db_config.connect(conn);
 
 app.use(express.static(path.join(__dirname + '/public')));
+app.use(express.urlencoded({extended : true}));
+app.use(express.json());
+app.use(cookieParser());
+app.use(expressSession({
+    secret : 'secret',
+    resave : false,
+    saveUninitialized : true,
+    cookie : {
+        maxAge : 1000 * 60 * 60
+    }
+}));
+
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+    if(req.session.user) {
+        console.log('user logged in already.');
+    }
+    else {
+        console.log('user not logged in.');
+    }
+
     res.render('time_table.html');
 });
+
 
 app.get('/activity_stream', (req, res) => {
     res.render('activity_stream.html');
@@ -25,6 +47,49 @@ app.get('/schedule', (req, res) => {
 
 app.get('/Group', (req, res) => {
     res.render('Group.html');
+});
+
+app.get('/memo', (req, res) => {
+    res.render('memo.html');
+});
+
+app.get('/register', (req, res) => {
+    res.render('register.html');
+});
+
+app.post('/login_check', (req, res) => {
+    const id = req.body.userid;
+    const pw = req.body.userpw;
+
+    if(req.session.user) {
+        console.log('user logged in already.');
+
+        console.log(`id : ${id}, pw : ${pw}`);
+        res.render('time_table.html');
+    }
+    else {
+        req.session.user = {
+            id: id,
+            pw: pw,
+            name: 'asdf',
+            authorized: true
+        };
+        console.log('made session')
+        console.log(`id : ${id}, pw : ${pw}`);
+        res.render('time_table.html');
+    }
+});
+
+
+app.get('/logout', (req, res) => {
+    if (req.session.user) {
+        console.log('user logged out.');
+        req.session.destroy();
+    } 
+    else {
+        console.log('user already logged out.');
+        res.redirect('time_table.html');
+    }
 });
 
 app.listen(3000, () => {
