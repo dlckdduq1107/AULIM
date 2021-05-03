@@ -4,6 +4,8 @@ const app = express();
 const path = require ('path');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const {PythonShell} = require('python-shell');
+
 var db_config = require(__dirname + '\\database.js');
 var conn = db_config.init();
 
@@ -90,6 +92,14 @@ app.get('/logout', (req, res) => {
         console.log('user already logged out.');
         res.redirect('time_table.html');
     }
+});
+
+app.get('/scrap', (req, res) => {
+    PythonShell.run('./scripts/sele.py', null, (err, result) => {
+        console.log('run');
+    });
+
+    res.render('scrap.html')
 });
 
 app.listen(3000, () => {

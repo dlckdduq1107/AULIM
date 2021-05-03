@@ -14,7 +14,7 @@ options.add_argument("window-size=1920x1080")
 options.add_argument("--log-level=3")
 options.add_argument("disable-gpu")
 
-driver = webdriver.Chrome("../driver/chromedriver.exe", chrome_options = options)
+driver = webdriver.Chrome("./driver/chromedriver.exe", chrome_options = options)
 driver.set_window_size(1280, 1080)
 driver.implicitly_wait(10)
 
@@ -26,32 +26,34 @@ userpw = driver.find_element_by_css_selector("input[id=password]")
 #get user id / pw from login page
 user_id = "gody8756" #temp id
 
-pw_f = open("pw.txt", "r") #temp pw
+pw_f = open("./scripts/pw.txt", "r") #temp pw
 pw = pw_f.readline()
 pw_f.close()
 
 userid.send_keys(user_id)
 userpw.send_keys(pw)
 driver.find_element_by_class_name("btn-login").click()
+# time.sleep(1)
+# driver.find_element_by_link_text("확인").click()
 
 result = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.nb-paging-blocks')))
 
 # get table data
 driver.find_element_by_css_selector(".tab-header ul li").click()
-
+time.sleep(3)
 driver.find_element_by_xpath("(//div[@class='left-nav-lists']/div[@class='ng-scope'])[2]").click()
-time.sleep(1)
+time.sleep(3)
 
 driver.find_element_by_link_text("수강신청결과/시험시간표조회").click()
-time.sleep(1)
+time.sleep(3)
 
 driver.find_element_by_xpath("//button[text()='검색']").click()
 
-time.sleep(1)
+time.sleep(3)
 table = driver.find_element_by_xpath("(//div[@class='sp-grid-row-group ng-scope'])[2]")
-time.sleep(1)
+time.sleep(3)
 eles = table.find_elements_by_xpath(".//span[@class='sp-grid-data-view']/span")
-time.sleep(1)
+time.sleep(3)
 
 table_col = 11
 table_row = int(len(eles) / table_col)
@@ -73,13 +75,17 @@ result = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CLAS
 userid = driver.find_element_by_css_selector("input[id=userId]")
 userpw = driver.find_element_by_css_selector("input[id=password]")
 
-pw_f = open("pw.txt", "r")
+pw_f = open("./scripts/pw.txt", "r")
 pw = pw_f.readline()
 pw_f.close()
 
 userid.send_keys("gody8756")
 userpw.send_keys(pw)
 driver.find_element_by_class_name("btn-login").click()
+# time.sleep(1)
+
+# driver.find_element_by_link_text("확인").click()
+
 time.sleep(4)
 
 driver.find_element_by_xpath("(//span[@class='link-text'])[2]").click()
@@ -105,5 +111,3 @@ f.close()
 
 driver.close()
 driver.quit()
-
-
