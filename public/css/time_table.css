@@ -151,11 +151,11 @@ table th, table td{
 table tr{
     border: 1px solid gray;
     word-wrap: break-word;
-    height: 5rem;
+    height: 2rem;
 }
 table{
     border-collapse: collapse;
-    width: 100%;
+    width: 70rem;
     height: 100%;
     text-align: center;
     table-layout: fixed;
