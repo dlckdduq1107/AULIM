@@ -67,11 +67,11 @@ a{
 }
 
 .login_form {
-    width: 200px;
+    width: 250px;
 }
 
 .login_form input {
-  float: right;
+  /* float: right; */
   width: 120px;
 }
 
@@ -84,6 +84,7 @@ a{
 
 .login_form button {
     float: right;
+    width: 65px;
 }
 
 .login_button {
