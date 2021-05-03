@@ -1,4 +1,5 @@
-window.onload = function setRowspan() {  //num 병합을 원하는 열
+// window.onload = function setRowspan() {  //num 병합을 원하는 열
+function setRowspan() { 
   var mergeItem = ""; //병합구분값
   var mergeCount = 0; //병합 수
   var mergeRowNum = 0;  //병합들num갈 r1w

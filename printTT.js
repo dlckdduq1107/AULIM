@@ -1,32 +1,47 @@
 
 
 $(document).ready(function(){
-    var rows = document.getElementById("이름입니당").getElementByTagName("tr");
-
-}
-
-
-class act{
-    constructor(name, classdate, start, long, alarm){
-        this.name = name;
-        this.classdate = classdate;
-        this.start = start;
-        this.long = long;
-        this.alarm = alarm;
+    class act{
+        constructor(name, classdate, start, long, alarm){
+            this.name = name;
+            this.classdate = classdate;
+            this.start = start;
+            this.long = long;
+            this.alarm = alarm;
+        }
     }
-    timeFinder(){
-        var cells = rows[this.classdate].getElementsByTagName("td"); //행찾기요일찾기
-        var timeplace = this.start //실수를 변수로 변경 , 열찾기
-        cells[timeplace].innerHTML = a.name;// 위치 내용 변경
-    }
-}
+    $.getJSON('test.json', function(data){
+        var rows = document.getElementById("time_table").getElementsByTagName("tr");
+        var cells = rows[4].getElementsByTagName("td");
 
+        var a = [];
+        var i = 0;
+        $.each(data,function(key,value){
+            a[i] = new act;
+            a[i].name = value.name;
+            a[i].classdate = value.classdate;
+            a[i].start = value.start;
+            a[i].alarm = value.alarm;
+            // alert(value.classdate);
+            var cells = rows[value.classdate].getElementsByTagName("td");
+            // alert(cells[value.start].innerHTML);
+            cells[value.start].innerHTML = value.name;
+
+            i++;
+            
+        });
+    });
+
+
+});
+    
+/*
 Act = Function(naem, classdate, start, long, alarm){
     this.name= naem;
     this.classdate=classdate;
 }
-var act1=Act('SE',1,10,2,'N');
 
+/*
 for(var key in activity){
     for(activity[key] in value){
         if(activity[key]=='start'){
@@ -46,4 +61,4 @@ for(var key in activity){
     timeFinder(a)
     //객체 초기화
 }
-
+*/

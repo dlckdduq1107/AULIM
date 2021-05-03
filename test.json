@@ -1,0 +1,23 @@
+[
+        {
+            "name" : "수학1",
+            "classdate" : 
+                3,
+            "start" : 4 ,
+            "alarm" : "Y"
+        },
+        {
+            "name" : "수학1",
+            "classdate" : 
+                4,
+            "start" : 4 ,
+            "alarm" : "Y"
+        },
+        {
+            "name" : "이산수학",
+            "classdate" : 
+                2,
+            "start" : 6 ,
+            "alarm" : "Y"
+        }
+]

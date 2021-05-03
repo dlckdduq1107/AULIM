@@ -107,3 +107,6 @@ app.listen(3000, () => {
     console.log('server started.');
 });
 
+app.use('/printTT.js', express.static(__dirname+"/printTT.js"));
+app.use('/test.json', express.static(__dirname+"/test.json"))
+
