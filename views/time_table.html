@@ -7,6 +7,10 @@
     <title>time_table</title>
     <link rel="stylesheet" href="/css/time_table.css">
     
+    <!--     제이쿼리 사용하기 위한 불러오기(?)-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="../modules/test.js"></script> 
 </head>
 <body>
    <div class="container">
@@ -58,7 +62,7 @@
          </nav>
           <main>
             <div class="main_table">
-                <table>
+                <table id="time_table">
                    <colgroup>
                        <col width="*" />
                        <col width="15%" />
@@ -77,10 +81,10 @@
 
                     <tbody>
                        <tr>
-                           <td>09:00</td><td>asdasd</td><td>asdasdsadasdasdasdasdasdsadsadasdasa</td><td></td><td></td><td></td><td></td>
+                           <td>09:00</td><td>aaa</td><td>asssaa</td><td></td><td>thurs</td><td></td><td></td>
                        </tr>
                        <tr>
-                           <td>09:30</td><td>asdasdasdasdsadasdasdasdsadasdasdasdasdasdasdasd</td><td></td><td></td><td></td><td></td><td></td>
+                           <td>09:30</td><td>aaa</td><td></td><td></td><td></td><td></td><td></td>
                        </tr>
                        <tr>
                            <td>10:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
@@ -168,6 +172,9 @@
                        </tr>
                        <tr>
                            <td>24:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr id="last_content" >
+                           <td></td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
                        </tr>
                     </tbody>
     

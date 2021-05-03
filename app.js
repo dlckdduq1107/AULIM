@@ -11,6 +11,7 @@ var conn = db_config.init();
 
 db_config.connect(conn);
 
+app.use('/modules', express.static(__dirname + "/modules")); //자바스크립트 파일을 사용하기 위해 경로를 설정해줘야함(nodejs)
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
