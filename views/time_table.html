@@ -8,9 +8,29 @@
     <link rel="stylesheet" href="/css/time_table.css">
     <!--     제이쿼리 사용하기 위한 불러오기(?)-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<<<<<<< Updated upstream
     <script src="../printTT.js"></script>
     <script src="../modules/test.js"></script>
     
+=======
+
+    <script src="../modules/test.js"></script>
+
+    <script>
+        function actSubmit(){
+            var queryString=$('#act_plus').serializeArray();
+            var object={};
+            for(var i=0;i<queryString.length;i++){
+                object[queryString[i]['name']]=queryString[i]['value'];
+            }
+            object=JSON.stringify(object);
+            $('#rtn').html(object);
+            alert(object);
+
+        }
+    </script>
+
+>>>>>>> Stashed changes
 </head>
        <header>
            <div class="top_bar">
@@ -56,7 +76,11 @@
              asdasdsdasd
          </nav>
           <main>
+<<<<<<< Updated upstream
             <input type= 'button' onclick ="setRowspan" value = 'tt'></input>
+=======
+
+>>>>>>> Stashed changes
             <div class="main_table">
                 <table id="time_table">
                    <colgroup>
@@ -180,7 +204,57 @@
           </main>
           
           <aside>
-              ad
+
+              <form name="act_plus" id="act_plus">
+                  <fieldset style="width: 250px">
+                      <legend>새로운 활동 추가</legend>
+                        활동명: <input type="text" name="act_name"> <br><br>
+                        날짜: <br>
+                        <select name="weeks">
+                            <option value="monday">월요일</option>
+                            <option value="tuesday">화요일</option>
+                            <option value="wednesday">수요일</option>
+                            <option value="thursday">목요일</option>
+                            <option value="friday">금요일</option>
+                            <option value="saturday">토요일</option>
+                        </select> <br>
+                        <select name="start-hours">
+                            <option value="9">9시</option>
+                            <option value="10">10시</option>
+                            <option value="11">11시</option>
+                            <option value="12">12시</option>
+                            <option value="13">13시</option>
+                            <option value="14">14시</option>
+                            <option value="15">15시</option>
+                        </select>
+                      <select name="start-seconds">
+                          <option value="0">0분</option>
+                          <option value="15">15분</option>
+                          <option value="30">30분</option>
+                          <option value="45">45분</option>
+                      </select>
+                      ~
+                      <select name="end-hours">
+                          <option value="9">9시</option>
+                          <option value="10">10시</option>
+                          <option value="11">11시</option>
+                          <option value="12">12시</option>
+                          <option value="13">13시</option>
+                          <option value="14">14시</option>
+                          <option value="15">15시</option>
+                      </select>
+                      <select name="end-seconds">
+                          <option value="0">0분</option>
+                          <option value="15">15분</option>
+                          <option value="30">30분</option>
+                          <option value="45">45분</option>
+                      </select>
+                      <br><br>
+                      <input type="submit" value="submit" onclick="actSubmit()">
+                  </fieldset>
+              </form>
+              <br>
+              응답데이타:<div name="rtn" id="rtn"></div>
           </aside>
            
        </section>
