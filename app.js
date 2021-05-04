@@ -131,5 +131,5 @@ app.listen(3000, () => {
 });
 
 app.use('/printTT.js', express.static(__dirname+"/printTT.js"));
-app.use('/test.json', express.static(__dirname+"/test.json"))
+app.use('/time_table.json', express.static(__dirname+"/time_table.json"))
 
