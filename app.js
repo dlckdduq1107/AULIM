@@ -68,7 +68,7 @@ app.post('/login_check', (req, res) => {
         console.log('user logged in already.');
 
         console.log(`id : ${id}, pw : ${pw}`);
-        res.render('time_table.html');
+        res.render('time_table_login.html');
     }
     else {
         req.session.user = {
@@ -79,8 +79,30 @@ app.post('/login_check', (req, res) => {
         };
         console.log('made session')
         console.log(`id : ${id}, pw : ${pw}`);
+        
+
+        //run sele.py
+        let options = {
+            args : [id, pw]
+        };
+        let pyshell = new PythonShell('./scripts/sele.py', options)
+
+        pyshell.on('msg', (msg) => {
+            console.log(msg);
+        });
+
+        pyshell.end((err, code, signal) => {
+            if(err) throw err;
+          
+            console.log('The exit code was: ' + code);
+              console.log('The exit signal was: ' + signal);
+              console.log('finished');
+        })
+
         res.render('time_table.html');
     }
+    
+
 });
 
 
@@ -88,6 +110,7 @@ app.get('/logout', (req, res) => {
     if (req.session.user) {
         console.log('user logged out.');
         req.session.destroy();
+        res.render('time_table.html');
     } 
     else {
         console.log('user already logged out.');
@@ -100,7 +123,7 @@ app.get('/scrap', (req, res) => {
         console.log('run');
     });
 
-    res.render('scrap.html')
+    res.redirect('time_table.html');
 });
 
 app.listen(3000, () => {
