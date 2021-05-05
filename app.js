@@ -100,9 +100,9 @@ app.post('/login_check', (req, res) => {
             authorized: true
         };
         console.log('made session')
-        console.log(`id : ${id}, pw : ${pw}`);
+        console.log(`id : ${id}`);
     }
-    res.render('time_table.html');
+    res.redirect('/');
 
 });
 
