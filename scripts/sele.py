@@ -34,28 +34,28 @@ user_pw = sys.argv[2]
 
 userid.send_keys(user_id)
 userpw.send_keys(user_pw)
+
+wait = WebDriverWait(driver, 60)
 driver.find_element_by_class_name("btn-login").click()
 # time.sleep(1)
 # driver.find_element_by_link_text("확인").click()
 
-result = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CSS_SELECTOR, '.nb-paging-blocks')))
+wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.nb-paging-blocks')))
 
 # get table data
 driver.find_element_by_css_selector(".tab-header ul li").click()
-time.sleep(2)
+#time.sleep(2)
+wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.left-nav-lists .ng-scope')))
 driver.find_element_by_xpath("(//div[@class='left-nav-lists']/div[@class='ng-scope'])[2]").click()
-time.sleep(2)
 
+time.sleep(0.5)
 driver.find_element_by_link_text("수강신청결과/시험시간표조회").click()
-time.sleep(2)
-
+time.sleep(1)
 driver.find_element_by_xpath("//button[text()='검색']").click()
 
-time.sleep(2)
+time.sleep(1)
 table = driver.find_element_by_xpath("(//div[@class='sp-grid-row-group ng-scope'])[2]")
-time.sleep(2)
 eles = table.find_elements_by_xpath(".//span[@class='sp-grid-data-view']/span")
-time.sleep(2)
 
 table_col = 11
 table_row = int(len(eles) / table_col)
