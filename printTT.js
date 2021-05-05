@@ -15,7 +15,7 @@ $(document).ready(function(){
         var i = 0;
         $.each(data,function(key1,value1){
             $.each(value1,function(key,value){
-                var rowcell = 0;
+                var rowcell = 1;
                 var colcell = 0;
                 for(var j = 0; j < value.classdate.length ; j++){
                     switch(value.classdate[j]){
@@ -37,32 +37,25 @@ $(document).ready(function(){
                         default:
                             alert("error!");
                     }
-                    switch(value.start[j]){
-                        case 'A':
-                            rowcell = 1;
-                            break;
-                        case 'B':
-                            rowcell = 4;
-                            break;
-                        case 'C':
-                            rowcell = 7;
-                            break;
-                        case 'D':
-                            rowcell = 10;
-                            break;
-                        case 'E':
-                            rowcell = 13;
-                            break;
-                        case 'F':
-                            rowcell = 16;
-                            break;
+                    var diff= value.start[j].charCodeAt(0) //ASCII Code로 변환함
+                    var long=0;
+                    if(Number(diff)>=65 && Number(diff)<=70){ //A~F의 값일 경우 조건문
+                        var pluscell= Number(diff)-Number('A'.charCodeAt(0))
+                        rowcell=1+3*pluscell
+                        long=3
                     }
-                    var cells = rows[rowcell].getElementsByTagName("td");
-                    cells[colcell].innerHTML = value.name;
-                    var cells = rows[rowcell+1].getElementsByTagName("td");
-                    cells[colcell].innerHTML = value.name;
-                    var cells = rows[rowcell+2].getElementsByTagName("td");
-                    cells[colcell].innerHTML = value.name;
+                    else { //문자가 아닌 숫자형식
+                        var time_num = Number(value.start[j])
+                        var pluscell = time_num - 1 //2.5-1 =1.5
+                        rowcell = 1 + pluscell * 2
+                        long=2
+                    }
+
+                    //value.long[j]=long
+                    for(var i=0;i<long;i++){
+                        var cells = rows[rowcell+i].getElementsByTagName("td");
+                        cells[colcell].innerHTML = value.name;
+                    }
                 }
                 i++;
             });
