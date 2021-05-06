@@ -48,18 +48,57 @@ driver.find_element_by_css_selector(".tab-header ul li").click()
 wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.left-nav-lists .ng-scope')))
 driver.find_element_by_xpath("(//div[@class='left-nav-lists']/div[@class='ng-scope'])[2]").click()
 
-time.sleep(0.5)
-driver.find_element_by_link_text("수강신청결과/시험시간표조회").click()
 time.sleep(1)
+driver.find_element_by_link_text("수강신청결과/시험시간표조회").click()
+time.sleep(2)
 driver.find_element_by_xpath("//button[text()='검색']").click()
 
-time.sleep(1)
+time.sleep(1.5)
 table = driver.find_element_by_xpath("(//div[@class='sp-grid-row-group ng-scope'])[2]")
 eles = table.find_elements_by_xpath(".//span[@class='sp-grid-data-view']/span")
 
 table_col = 11
 table_row = int(len(eles) / table_col)
 #print("{} courses found.".format(table_row))
+
+
+def parse_str(act, sample): #parse time table info
+    splited = sample.split(' ')
+
+    for i in range(len(splited)):
+        word = splited[i]
+        if(word[0] == '('):
+            continue
+        
+        if '~' in word:
+            act['classdate'].append(word[0])
+            before = (word.split('~'))[0]
+            before_time = before[1:]
+
+            hour, minute = before_time.split(':')
+            
+            if(hour == '9'):
+                act['start'].append('A')
+            elif(hour == '10'):
+                act['start'].append('B')
+            elif(hour == '12'):
+                act['start'].append('C')
+            elif(hour == '13'):
+                act['start'].append('D')
+            elif(hour == '15'):
+                act['start'].append('E')
+            elif(hour == '16'):
+                act['start'].append('F')
+
+        elif(word[1].isdigit() == True):
+            act['classdate'].append(word[0])
+            before = (word.split('('))[0]
+            before_time = before[1:]
+            act['start'].append(before_time)
+
+        else:
+            act['classdate'].append(word[0])
+            act['start'].append(word[1])
 
 acts = {"activities" : []}
 
@@ -70,11 +109,7 @@ for i in range(table_row):
             act['name'] = eles[i*table_col + j].get_attribute("innerHTML")
         if(j == 6):
             times = eles[i*table_col + j].get_attribute("innerHTML")
-            one, two = times.split(' ')
-            act['classdate'].append(one[0])
-            act['classdate'].append(two[0])
-            act['start'].append(one[1])
-            act['start'].append(two[1])
+            parse_str(act, times)
     acts['activities'].append(act)
 
 with open('time_table.json', 'w', encoding='utf-8') as make_file:
