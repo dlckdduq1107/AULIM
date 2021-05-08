@@ -59,6 +59,8 @@ CREATE TABLE IF NOT EXISTS `aulim`.`memo` (
   `userID` VARCHAR(10) NOT NULL,
   `wdate` DATE NOT NULL,
   `context` TEXT NOT NULL,
+  `classname` VARCHAR(20) NOT NULL,
+  `mdate` DATE NOT NULL,
   PRIMARY KEY (`Inndex`))
 ENGINE = InnoDB;
 
