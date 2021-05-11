@@ -7,7 +7,6 @@
     <title>time_table</title>
     <link rel="stylesheet" href="/css/memo.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="../printTT.js"></script>
 </head>
 <body>
    <div class="container">
@@ -65,11 +64,7 @@
                     <option value=4>asdf</option>
                 </select>  
             </div>
-            <div class="buttons">
-                <button type="submit">수정</button>
-                <button type="submit">삭제</button>
-                <button type="submit">저장</button>
-            </div>
+            
             <div class="list" id="date_list">
                 <select name="date" size="20">
                     <option value=1>asdf</option>
@@ -79,10 +74,15 @@
                 </select>  
                 
             </div>
+            <form action="/save_memo" method="post">
+            <div class="buttons">
+                <button type="submit">수정</button>
+                <button type="submit">삭제</button>
+                <button type="submit" id="save_button">저장</button>
+            </div>           
+             <textarea id="memo" name="memo_content" rows="30" cols="100" maxlength="3000" placeholder="메모 내용 입력"></textarea>
+            </form>
 
-            <textarea id="memo" name="memo_content"  rows="30" cols="100" maxlength="3000" placeholder="메모 내용 입력">HELLO</textarea>
-            
-            </div>
                 
           </main>
       

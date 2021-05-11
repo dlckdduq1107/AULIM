@@ -4,6 +4,7 @@ const app = express();
 const path = require ('path');
 const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
+const fs = require('fs');
 const {PythonShell} = require('python-shell');
 
 var db_config = require(__dirname + '\\database.js');
@@ -83,7 +84,7 @@ let crawl_time_table = function(req, res, next) { //middleware for crawling time
     next();
 }
 
-app.use('/login_check', crawl_time_table);
+//app.use('/login_check', crawl_time_table);
 
 app.post('/login_check', (req, res) => {
     let id = req.body.userid;
@@ -126,6 +127,28 @@ app.get('/scrap', (req, res) => {
 
     res.redirect('time_table.html');
 });
+
+app.post('/save_memo', (req, res) => {
+    let content = req.body.memo_content; 
+    let id = req.session.user.id;
+    if(!id) {
+        console.log('cannot found user id');
+        res.redirect('/memo');
+    }
+    else {
+        let now = new Date(Date.now());
+        let date = now.getFullYear()+"-"+(now.getMonth()+1)+"-"+now.getDate();
+        let filename = id + "-"+ Math.floor(Math.random()*10);
+        console.log(filename);
+        let sql = `INSERT INTO memo (userID, wdate, mdate, context) VALUES ('${id}', '${date}', '${date}', '${filename}')`;
+        conn.query(sql, (err, result) => {
+            if(err) console.log('sql error!');
+            else console.log('sql inserted.');
+        });
+        fs.writeFileSync(__dirname + "/data/memo/file1.txt", '\ufeff' + content, {encoding: 'utf8'});
+        res.redirect('/memo');
+    }
+}); 
 
 app.listen(3000, () => {
     console.log('server started.');
