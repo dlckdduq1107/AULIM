@@ -60,6 +60,7 @@ CREATE TABLE IF NOT EXISTS `aulim`.`memo` (
   `wdate` DATE NOT NULL,
   `mdate` DATE NOT NULL,
   `context` TEXT NOT NULL,
+  `classname` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`Inndex`))
 ENGINE = InnoDB;
 
