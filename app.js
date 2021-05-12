@@ -145,7 +145,7 @@ app.post('/save_memo', (req, res) => {
             if(err) console.log('sql error!');
             else console.log('sql inserted.');
         });
-        fs.writeFileSync(__dirname + "/data/memo/file1.txt", '\ufeff' + content, {encoding: 'utf8'});
+        fs.writeFileSync(__dirname + `/data/memo/${filename}.txt`, '\ufeff' + content, {encoding: 'utf8'});
         res.redirect('/memo');
     }
 }); 
