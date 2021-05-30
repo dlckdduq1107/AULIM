@@ -1,3 +1,4 @@
 node_modules
 time_table.json
 stream.txt
+/data/*.json

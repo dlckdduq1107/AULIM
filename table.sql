@@ -20,7 +20,6 @@ USE `aulim` ;
 CREATE TABLE IF NOT EXISTS `aulim`.`user` (
   `Index` INT NOT NULL AUTO_INCREMENT,
   `userID` VARCHAR(10) NOT NULL,
-  `userPW` VARCHAR(15) NOT NULL,
   `userCode` CHAR(10) NOT NULL,
   `userName` VARCHAR(10) NOT NULL,
   PRIMARY KEY (`Index`))

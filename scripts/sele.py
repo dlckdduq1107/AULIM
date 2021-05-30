@@ -11,7 +11,7 @@ import json
 
 # headless
 options = webdriver.ChromeOptions()
-options.add_argument("headless")
+#options.add_argument("headless")
 options.add_argument("window-size=1920x1080")
 options.add_argument("--log-level=3")
 options.add_argument("disable-gpu")
@@ -51,9 +51,16 @@ driver.find_element_by_xpath("(//div[@class='left-nav-lists']/div[@class='ng-sco
 time.sleep(1)
 driver.find_element_by_link_text("수강신청결과/시험시간표조회").click()
 time.sleep(2)
+
+# driver.find_element_by_css_selector("ng-isolate-scope ng-valid ng-not-empty ng-touched").click()
+
+driver.find_element_by_xpath("//select[@ng-model='mc.cbShtmCdSh']").click()
+driver.find_element_by_xpath("//option[@label='1학기']").click()
+
 driver.find_element_by_xpath("//button[text()='검색']").click()
 
-time.sleep(1.5)
+
+time.sleep(2)
 table = driver.find_element_by_xpath("(//div[@class='sp-grid-row-group ng-scope'])[2]")
 eles = table.find_elements_by_xpath(".//span[@class='sp-grid-data-view']/span")
 
@@ -112,46 +119,44 @@ for i in range(table_row):
             parse_str(act, times)
     acts['activities'].append(act)
 
-with open('time_table.json', 'w', encoding='utf-8') as make_file:
-    json.dump(acts, make_file, indent=4, ensure_ascii=False)
-
-# get ajouBB stream data
-driver.get("https://eclass2.ajou.ac.kr/ultra/stream")
-
-result = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CLASS_NAME, 'btn-login')))
-userid = driver.find_element_by_css_selector("input[id=userId]")
-userpw = driver.find_element_by_css_selector("input[id=password]")
-
-userid.send_keys(user_id)
-userpw.send_keys(user_pw)
-driver.find_element_by_class_name("btn-login").click()
-# time.sleep(1)
-
-# driver.find_element_by_link_text("확인").click()
-
-time.sleep(3)
-
-driver.find_element_by_xpath("(//span[@class='link-text'])[2]").click()
-time.sleep(2)
-driver.find_element_by_id("filter-stream-value").click()
-driver.find_element_by_link_text("과제 및 시험").click()
-time.sleep(1)
-
-streams = driver.find_elements_by_class_name("stream-item-contents")
-stream_num = len(streams)
-#print("{} streams found.".format(stream_num))
-
-f = open("stream.txt", 'w', encoding='utf-8')
-
-for stream in streams:
-    f.write(stream.find_element_by_xpath(".//div[@class='timestamp']/div/div/span[@class='date']").get_attribute("innerHTML")+ " ")
-    f.write(stream.find_element_by_xpath(".//div[@class='timestamp']/div/div/span[@class='time']").get_attribute("innerHTML")+ " ")
-    f.write(stream.find_element_by_xpath(".//div[@class='context ellipsis']/a").get_attribute("innerHTML")+ " ")
-    f.write(stream.find_element_by_xpath(".//div[@class='name']/ng-switch/a").get_attribute("innerHTML") + " ")
-    f.write(stream.find_element_by_xpath(".//div[@class='content']/span/bb-translate/bdi").get_attribute("innerHTML") + "\n")
-f.close()
-
+# with open('time_table.json', 'w', encoding='utf-8') as make_file:
+#     json.dump(acts, make_file, indent=4, ensure_ascii=False)
 driver.close()
 driver.quit()
+print(json.dumps(acts, ensure_ascii=False))
 
-print('success')
+# # get ajouBB stream data
+# driver.get("https://eclass2.ajou.ac.kr/ultra/stream")
+
+# result = WebDriverWait(driver, 60).until(EC.presence_of_element_located((By.CLASS_NAME, 'btn-login')))
+# userid = driver.find_element_by_css_selector("input[id=userId]")
+# userpw = driver.find_element_by_css_selector("input[id=password]")
+
+# userid.send_keys(user_id)
+# userpw.send_keys(user_pw)
+# driver.find_element_by_class_name("btn-login").click()
+# # time.sleep(1)
+
+# # driver.find_element_by_link_text("확인").click()
+
+# time.sleep(3)
+
+# driver.find_element_by_xpath("(//span[@class='link-text'])[2]").click()
+# time.sleep(2)
+# driver.find_element_by_id("filter-stream-value").click()
+# driver.find_element_by_link_text("과제 및 시험").click()
+# time.sleep(1)
+
+# streams = driver.find_elements_by_class_name("stream-item-contents")
+# stream_num = len(streams)
+# #print("{} streams found.".format(stream_num))
+
+# f = open("stream.txt", 'w', encoding='utf-8')
+
+# for stream in streams:
+#     f.write(stream.find_element_by_xpath(".//div[@class='timestamp']/div/div/span[@class='date']").get_attribute("innerHTML")+ " ")
+#     f.write(stream.find_element_by_xpath(".//div[@class='timestamp']/div/div/span[@class='time']").get_attribute("innerHTML")+ " ")
+#     f.write(stream.find_element_by_xpath(".//div[@class='context ellipsis']/a").get_attribute("innerHTML")+ " ")
+#     f.write(stream.find_element_by_xpath(".//div[@class='name']/ng-switch/a").get_attribute("innerHTML") + " ")
+#     f.write(stream.find_element_by_xpath(".//div[@class='content']/span/bb-translate/bdi").get_attribute("innerHTML") + "\n")
+# f.close()

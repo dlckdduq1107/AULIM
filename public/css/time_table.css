@@ -98,6 +98,10 @@ a{
     width:80px;
 }
 
+#logout_button {
+    float: right;
+}
+
 footer{
     border-top:1px solid gray;
     padding:20px;
