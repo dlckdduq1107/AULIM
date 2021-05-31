@@ -11,6 +11,13 @@ npm install
 nodemon app.js
 ```
 
+- Python 인코딩 설정
+```
+환경변수 설정 -> 시스템 변수
+변수 이름 : PYTHONIOENCODING
+변수 값 : utf-8
+```
+
 - mysql 설치 후 table.sql 한번 실행 필요
 
 ```
