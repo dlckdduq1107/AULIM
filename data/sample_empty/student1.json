@@ -1,0 +1,90 @@
+{
+    "activities": [
+        {
+            "name": "ERP - MM",
+            "classdate": [
+                "월",
+                "월",
+                "월"
+            ],
+            "start": [
+                "11",
+                "12",
+                "13"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "데이터 애널리틱스-R기반 통계",
+            "classdate": [
+                "월",
+                "목"
+            ],
+            "start": [
+                "B",
+                "B"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "데이터관리론",
+            "classdate": [
+                "화",
+                "목"
+            ],
+            "start": [
+                "F",
+                "E"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "소비자행동론",
+            "classdate": [
+                "화",
+                "목"
+            ],
+            "start": [
+                "D",
+                "C"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "소프트웨어공학",
+            "classdate": [
+                "화",
+                "금"
+            ],
+            "start": [
+                "C",
+                "C"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "수학2",
+            "classdate": [
+                "월",
+                "수"
+            ],
+            "start": [
+                "A",
+                "A"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "의사결정모델",
+            "classdate": [
+                "화",
+                "목"
+            ],
+            "start": [
+                "B",
+                "A"
+            ],
+            "alarm": "Y"
+        }
+    ]
+}

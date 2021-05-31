@@ -1,16 +1,35 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <link rel="stylesheet" href="/css/Group.css">
-  <title>Group</title>
+    <meta charset="UTF-8">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1">-->
+    <title>time_table</title>
+    <link rel="stylesheet" href="/css/Group.css">
+    <!--     제이쿼리 사용하기 위한 불러오기(?)-->
+    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/modules/empty_class.js"></script>
+    <!-- <script src="../printTT.js"></script> -->
+    <!-- <script src="../modules/test.js"></script> -->
+
+    <script>
+        function actSubmit(){
+            var queryString=$('#act_plus').serializeArray();
+            var object={};
+            for(var i=0;i<queryString.length;i++){
+                object[queryString[i]['name']]=queryString[i]['value'];
+            }
+            object=JSON.stringify(object);
+            $('#rtn').html(object);
+            alert(object);
+
+        }
+    </script>
 </head>
-<body>
-   <div class="container">
        <header>
            <div class="top_bar">
-            <h1><a href="/" id="logo">AULIM</a></h1>
+              <h1><a href="/" id="logo">AULIM</a></h1>
               <nav>
                   <ul class="menu">
                     <li><a href="/activity_stream">스트림</a></li>
@@ -18,35 +37,234 @@
                     <li><a href="/Group">공강시간</a></li>
                     <li><a href="/schedule">계획표 추천</a></li>
                     <li><a href="/memo">강의 메모</a></li>
-                  </ul>
+
+                    <div class="login_box">
+                        <form class="login_form" action="login_check" method="post"> 
+                            <label for="username">ID</label>
+                            <button type="submit">Login</button>
+                            
+                            <input id="user_id" name="userid" type="text"/>
+                            
+                            <label for="userpw">PW</label>
+                            <input id="user_pw" name="userpw" type="password"/>
+                            <button type="button" onclick="location.href='/register'">Register</button>
+                        </form>
+                        <form id="logout_button" action="logout" method="post">
+                            <button type="submit">Logout</button>
+                        </form>
+                    </div>
+                    <div class="login_button">
+                        
+                    </div>
+                  </ul>   
               </nav>
           </div>
        </header>
-    </div>
-    
-    <main>
-        <div class="container_content">
-            <div class="Group">
-                My Group
-                <button>그룹 생성</button> <button>그룹 삭제</button>
-                <div class=groupbox>그룹 1
-                    <button>멤버추가</button>
-                    <button>공강시간 확인</button>
-                    <div class="member">김진수<button>X</button></div>
-                    <div class="member">이재협<button>X</button></div>
-                    <div class="member">이창엽<button>X</button></div>
-                    <div class="member">신승헌<button>X</button></div>
-                    <div class="member">양준길<button>X</button></div>
-                </div>
+       <div class="title">
+         <div style="font-size: 3rem;">time_table</div>
+         <div class="button">
+             <div><input type="radio" name="table" value="base" checked="checked"> 기본 시간표 보기</div>
+              <div><input type="radio" name="table" value="add"> 추가일정 포함한 시간표 보기</div>
+         </div>
+       </div>
+       <section class="content">
+         <nav>
+          <div class="Group">
+            My Group
+            <button>그룹 생성</button> <button>그룹 삭제</button>
+            <div class=groupbox>그룹 1
+                <button>멤버추가</button>
+                <button onclick="empty(3);">공강시간 확인</button>
+                <div class="member">김진수<button>X</button></div>
+                <div class="member">이재협<button>X</button></div>
+                <div class="member">이창엽<button>X</button></div>
+                <div class="member">신승헌<button>X</button></div>
+                <div class="member">양준길<button>X</button></div>
             </div>
-            <div class="schedule">
-              <p>시간표</p>
-            </div>    
-          </div>
-    </main>
+        </div>
+         </nav>
+          <main>
+            <div class="main_table">
+                <table id="time_table">
+                   <colgroup>
+                       <col width="*" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                   </colgroup>
+                   
+                    <thead>
+                       <tr>
+                           <th>교시/요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>   
+                       </tr>  
+                    </thead>
+
+                    <tbody>
+                       <tr>
+                           <td>09:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>09:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>10:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>10:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>11:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>11:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>12:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>12:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>13:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>13:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>14:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>15:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>15:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>16:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>16:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>17:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>17:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>18:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>18:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>19:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>19:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>20:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>20:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>21:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>21:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>22:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>22:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>23:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>23:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>24:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr id="last_content" >
+                           <td></td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                       </tr>
+                    </tbody>
+    
+                </table>
+            </div>
+    
+          </main>
+          
+          <aside>
+
+              <form name="act_plus" id="act_plus">
+                  <fieldset style="width: 250px">
+                      <legend>새로운 활동 추가</legend>
+                        활동명: <input type="text" name="act_name"> <br><br>
+                        날짜: <br>
+                        <select name="weeks">
+                            <option value="monday">월요일</option>
+                            <option value="tuesday">화요일</option>
+                            <option value="wednesday">수요일</option>
+                            <option value="thursday">목요일</option>
+                            <option value="friday">금요일</option>
+                            <option value="saturday">토요일</option>
+                        </select> <br>
+                        <select name="start-hours">
+                            <option value="9">9시</option>
+                            <option value="10">10시</option>
+                            <option value="11">11시</option>
+                            <option value="12">12시</option>
+                            <option value="13">13시</option>
+                            <option value="14">14시</option>
+                            <option value="15">15시</option>
+                        </select>
+                      <select name="start-seconds">
+                          <option value="0">0분</option>
+                          <option value="15">15분</option>
+                          <option value="30">30분</option>
+                          <option value="45">45분</option>
+                      </select>
+                      ~
+                      <select name="end-hours">
+                          <option value="9">9시</option>
+                          <option value="10">10시</option>
+                          <option value="11">11시</option>
+                          <option value="12">12시</option>
+                          <option value="13">13시</option>
+                          <option value="14">14시</option>
+                          <option value="15">15시</option>
+                      </select>
+                      <select name="end-seconds">
+                          <option value="0">0분</option>
+                          <option value="15">15분</option>
+                          <option value="30">30분</option>
+                          <option value="45">45분</option>
+                      </select>
+                      <br><br>
+                      <input type="button" value="submit" onclick="actSubmit()">
+                  </fieldset>
+              </form>
+              <br>
+              응답데이타:<div name="rtn" id="rtn"></div>
+          </aside>
+           
+       </section>
+       <footer>
+           html
+       </footer>
+   </div>
+    
 </body>
-<div class="makebox">
-    <p>추가할 멤버의 코드를 입력하세요.</p>
-    <input type="text"> <button>확인</button>
-</div>
 </html>
