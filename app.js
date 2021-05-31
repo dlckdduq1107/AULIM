@@ -132,5 +132,6 @@ app.listen(3000, () => {
 });
 
 app.use('/printTT.js', express.static(__dirname+"/printTT.js"));
+app.use('/Recommend.js', express.static(__dirname+"/Recommend.js"));
 app.use(express.static(__dirname+"/data"))
 
