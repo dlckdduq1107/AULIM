@@ -7,6 +7,7 @@
     <title>time_table</title>
     <link rel="stylesheet" href="/css/time_table.css">
     <!--     제이쿼리 사용하기 위한 불러오기(?)-->
+    <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="../printTT.js"></script>
@@ -47,8 +48,9 @@
                             <label for="userpw">PW</label>
                             <input id="user_pw" name="userpw" type="password"/>
                             <button type="button" onclick="location.href='/register'">Register</button>
-                            
-                        <a href="/logout">Logout</a>
+                        </form>
+                        <form id="logout_button" action="logout" method="post">
+                            <button type="submit">Logout</button>
                         </form>
                     </div>
                     <div class="login_button">
@@ -239,7 +241,7 @@
                           <option value="45">45분</option>
                       </select>
                       <br><br>
-                      <input type="submit" value="submit" onclick="actSubmit()">
+                      <input type="button" value="submit" onclick="actSubmit()">
                   </fieldset>
               </form>
               <br>

@@ -6,36 +6,43 @@
 <!--    <meta name="viewport" content="width=device-width,initial-scale=1">-->
     <title>time_table</title>
     <link rel="stylesheet" href="/css/memo.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../modules/memo.js"></script>
 </head>
 <body>
    <div class="container">
-       <header>
-           <div class="top_bar">
-              <h1><a href="/" id="logo">AULIM</a></h1>
-              <nav>
-                  <ul class="menu">
-                      <li><a href="/activity_stream">스트림</a></li>
-                      <li><a href="/">시간표</a></li>
-                      <li><a href="/Group">공강시간</a></li>
-                      <li><a href="/schedule">계획표 추천</a></li>
-                      <li><a href="/memo">강의 메모</a></li>
-                  </ul>
+        <header>
+            <div class="top_bar">
+            <h1><a href="/" id="logo">AULIM</a></h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="/activity_stream">스트림</a></li>
+                    <li><a href="/">시간표</a></li>
+                    <li><a href="/Group">공강시간</a></li>
+                    <li><a href="/schedule">계획표 추천</a></li>
+                    <li><a href="/memo">강의 메모</a></li>
 
-                  <div class="login_box">
-                    <form class="login_form">
-                        <input id="user_id" name="username" type="text"/>
-                        <label for="username">ID</label>
-                        <input id="user_pw" name="userpw" type="password"/>
-                        <label for="userpw">PW</label>
-                    </form>
-                  </div>
-              </nav>
-
-              
-          </div>
-          
-       </header>
+                    <div class="login_box">
+                        <form class="login_form" action="login_check" method="post"> 
+                            <label for="username">ID</label>
+                            <button type="submit">Login</button>
+                            
+                            <input id="user_id" name="userid" type="text"/>
+                            
+                            <label for="userpw">PW</label>
+                            <input id="user_pw" name="userpw" type="password"/>
+                            <button type="button" onclick="location.href='/register'">Register</button>
+                            
+                        <a href="/logout">Logout</a>
+                        </form>
+                    </div>
+                    <div class="login_button">
+                        
+                    </div>
+                </ul>   
+            </nav>
+        </div>
+        </header>
        <div class="title">
          <div style="font-size: 3rem;">time_table</div>
          <div class="button">
@@ -50,14 +57,33 @@
              asdasdsdasd
          </nav>
           <main>
-            Memo here
-    
+            <div class="list" id="course_list">
+                <select id="course" size="10">
+                    
+                </select>  
+            </div>
+            
+            <div class="list" id="date_list">
+                <select name="date" size="20">
+                    <option value=1>asdf</option>
+                    <option value=2>asdf</option>
+                    <option value=3>asdf</option>
+                    <option value=4>asdf</option>
+                </select>  
+                
+            </div>
+            <form action="/save_memo" method="post">
+            <div class="buttons">
+                <button type="submit">수정</button>
+                <button type="submit">삭제</button>
+                <button type="submit" id="save_button">저장</button>
+            </div>           
+             <textarea id="memo" name="memo_content" rows="30" cols="100" maxlength="3000" placeholder="메모 내용 입력"></textarea>
+            </form>
+
+                
           </main>
-          
-          <aside>
-              ad
-          </aside>
-           
+      
        </section>
        <footer>
            html

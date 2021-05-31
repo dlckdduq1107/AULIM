@@ -1,4 +1,14 @@
-$(document).ready(function(){
+var socket = io();
+var id;
+
+socket.on('recMsg', (data)=> {
+    console.log(data);
+    id = data.userId;
+    setTimeout(printTable(), 500);
+});
+
+
+function printTable() {
     class act{
         constructor(name, classdate, start, long, alarm){
             this.name = name;
@@ -8,7 +18,7 @@ $(document).ready(function(){
             this.alarm = alarm;
         }
     }
-    $.getJSON('time_table.json', function(data){
+    $.getJSON(`../data/time_table-${id}.json`, function(data){
         var rows = document.getElementById("time_table").getElementsByTagName("tr");
         var cells = rows[4].getElementsByTagName("td");
         var a = [];
@@ -80,4 +90,4 @@ $(document).ready(function(){
             })
         }
     });
-});
+}
