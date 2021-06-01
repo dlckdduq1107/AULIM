@@ -26,10 +26,10 @@ userid = driver.find_element_by_css_selector("input[id=userId]")
 userpw = driver.find_element_by_css_selector("input[id=password]")
 
 #get user id / pw from login page
-user_id = wnsrlf0721 #temp id
+user_id = sys.argv[1] #temp id
 
 #pw_f = open("./scripts/pw.txt", "r") #temp pw
-user_pw = yni1497307 #sys.argv[2]
+user_pw = sys.argv[2]
 #pw_f.close()
 
 userid.send_keys(user_id)
