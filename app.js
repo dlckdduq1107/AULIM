@@ -74,6 +74,7 @@ app.post('/login_check', (req, res) => {
         args : [id, pw]
     };
 
+    
     if(req.session.user) {
         console.log('user logged in already.');
         res.redirect('/');
@@ -88,15 +89,20 @@ app.post('/login_check', (req, res) => {
         console.log('made session')
         console.log(`id : ${id}`);
 
-        PythonShell.run('./scripts/sele.py', options, (err, data) => {
-            fs.writeFileSync(`./data/time_table-${id}.json`, JSON.stringify(JSON.parse(data), null, 4));
+        // PythonShell.run('./scripts/sele.py', options, (err, data) => {
+        //     fs.writeFileSync(`./data/time_table-${id}.json`, JSON.stringify(JSON.parse(data), null, 4));
 
-            io.on('connection', (socket) => {
-                console.log('socket connected');
-                socket.emit('recMsg', {userId : id});
-            });
-            res.redirect('/')
+        //     io.on('connection', (socket) => {
+        //         console.log('socket connected');
+        //         socket.emit('recMsg', {userId : id});
+        //     });
+        //     res.redirect('/')
+        // });
+        io.on('connection', (socket) => {
+            console.log('socket connected');
+            socket.emit('recMsg', {userId : id});
         });
+        res.redirect('/schedule')
     }
 });
 

@@ -65,6 +65,15 @@ CREATE TABLE IF NOT EXISTS `aulim`.`memo` (
   PRIMARY KEY (`Inndex`))
 ENGINE = InnoDB;
 
+CREATE TABLE `aulim`.`addactlist` (
+  `idnew_table` INT NOT NULL,
+  `actName` VARCHAR(45) NULL,
+  `classdate` INT NULL,
+  `start` INT NULL,
+  `long` INT NULL,
+  `alarm` TINYINT NULL DEFAULT 1,
+  PRIMARY KEY (`idnew_table`));
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

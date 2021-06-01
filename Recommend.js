@@ -10,31 +10,31 @@ class act{
     }
 }
 
+
 function actSubmit1(){
-    //arr[count] = new object;
-    arr[count] = new act;
+    arr[count] = new act();
     var name1 = document.getElementById("act_name").value;
     var time1 = document.getElementById("time_input").value;
     var strn = name1 + "  " + time1 + "시간";
     document.getElementById("rtn").append(strn);
     arr[count].name = name1;
-    arr[count].long = time1;
+    arr[count].long = parseInt(time1);
     count++;
 }
 
 //const { json } = require("express");
 
-function Calling(){
-    Recommend(arr);
-}
+// function Calling(){
+//     Recommend(arr);
+// }
 
 
-function Recommend(inputarr){ // 추천시간표에 추가해야할 활동내용 
-    $.getJSON('time_table.json' , function(data){ // 기존 시간표 읽어오기
+function Recommend(){ // 추천시간표에 추가해야할 활동내용 
+    $.getJSON('time_table-wlstnsp1.json' , function(data){ // 기존 시간표 읽어오기
         var rows = document.getElementById("time_table").getElementsByTagName("tr");
         var cells = rows[4].getElementsByTagName("td");
-        var a = [];
         var i = 0;
+        var a = [];
         $.each(data,function(key1,value1){
             $.each(value1,function(key,value){
                 var rowcell = 0;
@@ -59,97 +59,114 @@ function Recommend(inputarr){ // 추천시간표에 추가해야할 활동내용
                         default:
                             alert("error!");
                     }
-                    switch(value.start[j]){
-                        case 'A':
-                            rowcell = 1;
-                            break;
-                        case 'B':
-                            rowcell = 4;
-                            break;
-                        case 'C':
-                            rowcell = 7;
-                            break;
-                        case 'D':
-                            rowcell = 10;
-                            break;
-                        case 'E':
-                            rowcell = 13;
-                            break;
-                        case 'F':
-                            rowcell = 16;
-                            break;
-                    }
-                    //a[i] = [rowcell, colcell];
                     a[i] = new act();
                     a[i].name = value.name;
-                    a[i].classdate = value.classdate;
-                    a[i].start = value.start;
-                    a[i].alarm = value.alarm;
-                    for(var k = 0; k < value.long; k++){
-                        var cells = rows[rowcell+k].getElementsByTagName("td");
-                        cells[colcell].innerHTML = value.name;
+
+                    var diff= value.start[j].charCodeAt(0) //ASCII Code로 변환함
+                    var long=0;
+                    if(Number(diff)>=65 && Number(diff)<=70){ //A~F의 값일 경우 조건문
+                        var pluscell= Number(diff)-Number('A'.charCodeAt(0));
+                        rowcell=1+3*pluscell;
+                        long=3;
                     }
+                    else { //문자가 아닌 숫자형식
+                        var time_num = Number(value.start[j]);
+                        var pluscell = time_num - 1; //2.5-1 =1.5
+                        rowcell = 1 + pluscell * 2;
+                        long=2;
+                    }
+                    a[i].classdate = colcell;
+                    a[i].start = rowcell;
+                    a[i].long = long;
+                    
+                    // alert(a[i].name);
+                    // alert(a[i].start);
+                    // alert(a[i].long);
+                    // if(isNaN(value.start))
+                    //     a[i].long = 3;
+                    // else
+                    //     a[i].long = 2;
+                    a[i].alarm = value.alarm;
+                    i++;
+
                 }
-                i++;
-            });
+            });   
         })
         var flag = true;
-        var i = 0;
-        var selectarr = []; // 유효한 랜덤값 배열
+        i = 0;
+        //var selectarr = []; // 유효한 랜덤값 배열
+        var tempTime =0;
+        var alength = 0;
+        var x = 0;
+        var y = 0;
         while(true){ // selectarr를 inputarr만큼 얻을 때 까지 반복
+            // alert(a.length); 7나옴
             flag = true; // a arr에 값있는지 확인용
-            var x = Math.floor(Math.random()*6)+1   //랜덤으로 요일 설정
-            var y = Math.floor(Math.random()*30)+1   //랜덤으로 시간 설정  
-            var select = [x,y];    // a arr모양으로 랜덤값 설정
-            for(var j = 0; j < a.length; j++){
-                for(var k=0; k<a[j].start.length; k++){
-                    if(isNaN(a[j].start[k])){ //알파벳인 경우
-                        if (select[0] == a[j].classdate[k] && select[1] == a[j].start[k]
-                            && select[1] == a[j].start[k]+1 && select[1] == a[j].start[k]+2){    // a arr에 랜덤값과 같은 값있으면 flag false로 바꿈 -> 다시 랜덤값 구해야함
-                            flag = false;
-                            break;        
-                        } 
-                    }else{
-                        if (select[0] == a[j].classdate[k] && select[1] == a[j].start[k]
-                            && select[1] == a[j].start[k]+1){    // a arr에 랜덤값과 같은 값있으면 flag false로 바꿈 -> 다시 랜덤값 구해야함
-                            flag = false;
-                            break;        
-                        }
-                    }
-                }
-                if(flag == false)
-                break;
+            x = Math.floor(Math.random()*6)+1   //랜덤으로 요일 설정
+            y = Math.floor(Math.random()*30)+1   //랜덤으로 시간 설정
+            //alert(typeof(y));
+            //alert(typeof(arr[i].long));
+            var lll = y+(arr[i].long)-1;
+            // alert(typeof(lll));
+            if((lll) > 30){
+                //alert("abcd");
+                //alert(lll);
+                //alert(y + arr[i].long-1);
+                continue;
             }
-            if (flag){ // 랜덤값이 유효한 값인 경우
-               //selectarr[i] = [x,y,inputarr[i].name, inputarr[i].long]; // selectarr에 추가함
-               alert(arr.length);
-               
-               selectarr[i] = new act;
-               selectarr[i].name = inputarr[i].name;
-               selectarr[i].classdate = select[0];
-               selectarr[i].start = select[1];
-               selectarr[i].long = inputarr[i].long;
-               selectarr[i].alarm = 'Y';
-                if(i >= arr.length-1){
+            //alert("success");
+            for(var j = 0; j < a.length ; j++){
+                //var select = [x,y];    // a arr모양으로 랜덤값 설정
+                // alert(x);
+                // alert(y);
+                var pStart = a[j].start;
+                var pEnd = a[j].start + a[j].long -1;
+                var nStart = y;
+                var nEnd = y+ arr[i].long -1;
+                if(a[j].classdate == x && pStart <= nStart && pEnd >= nStart){
+                    flag = false;
                     break;
-                }else{
+                } else if (a[j].classdate == x && pStart <= nEnd && pEnd >= nEnd ){
+                    flag = false;
+                    break;
+                } else if (a[j].classdate == x && pStart >= nStart &&  pEnd <= nEnd){
+                    flag = false;
+                    break;
+                }
+                // else if(a[j].classdate == x && pStart <= nEnd && pEnd <= nEnd){
+                //     flag  = false;
+                //     break;
+                // }
+            }
+            //alert(arr.length);
+            
+            if(flag == true){
+                //alert(a.length);
+                alength = a.length;
+                a[alength] = new act(arr[i].name, x, y, arr[i].long, true);
                 i++;
+                if(i==arr.length){
+                    break;
                 }
             }
         }
-        for(var i = 0; i<selectarr.length ; i++){
-            var rowcell = selectarr[i].classdate;
-            var colcell = selectarr[i].start;
-            //alert(rowcell);
-            //alert(colcell);
-            for(var k = 0; k < selectarr[i].long; k++){
-                //alert('hi?');
+        //window.location.reload();
+        //alert(a.length);
+        for(var i = 0; i<a.length ; i++){
+            //alert(a[i].name);
+            //alert(a[i].classdate);
+            var rowcell = a[i].classdate;
+            var colcell = a[i].start;
+            for(var k = 0; k < a[i].long; k++){
                 var cells = rows[colcell+k].getElementsByTagName("td");
-                cells[rowcell].innerHTML = selectarr[i].name;
+                cells[rowcell].innerHTML = a[i].name;
             }
         }
-            //var jsonTT = JSON.stringify(selectarr);
-            
-    })
+        }
+    )
+}
+
+function pageReload(){
+    window.location.reload();
 }
 
