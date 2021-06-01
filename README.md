@@ -23,8 +23,8 @@ nodemon app.js
 ```
 cmd 창에서
 
-mysql -u user -p
-password 입력
+mysql -u root -p
+password 입력 (1234)
 
 source table.sql;
 ```
