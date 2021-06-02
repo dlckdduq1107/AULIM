@@ -28,16 +28,20 @@ function actSubmit1(){
     var time2 = parseInt(time1);
     var tcount = time1 / 3;
     var longArr = [];
+    
+    for(var i = 0; i < tcount; i++ ){
+        arr[count] = new act();
+        arr[count].name = name1;
+        arr[count].long = 3;
+        count++;
+    }
     if(time1 % 3 != 0){
-        for(var i = 0; i < tcount; i++ ){
-            longArr[i] = 3;
-        }
-        longArr[longArr.length] = time1%3;
+        arr[count] = new act();
+        arr[count].name = name1;
+        arr[count].long = time1 % 3;
+        count++;
     }
     document.getElementById("rtn").append(strn);
-    arr[count].name = name1;
-    arr[count].long = longArr;
-    count++;
 }
 
 
@@ -109,10 +113,36 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
             x = Math.floor(Math.random()*6)+1   //랜덤으로 요일 설정
             y = Math.floor(Math.random()*30)+1   //랜덤으로 시간 설정
             var lll = y+(arr[i].long)-1;
-
             if((lll) > 30){
-                continue;
+                flag = false;
             }
+            
+//실패
+            // for(var j = 0; j < a.length ; j++){
+            //     {
+            //         for(var k = 0; k < arr[j].long.length; j++){
+            //             var pStart = a[j].start;
+            //             var pEnd = a[j].start + a[j].long -1;
+            //             var nStart = y;
+            //             var nEnd = y+ arr[i].long[k] -1;
+            //             if(a[j].classdate == x && pStart <= nStart && pEnd >= nStart){
+            //                 flag = false;
+            //                 break;
+            //             } else if (a[j].classdate == x && pStart <= nEnd && pEnd >= nEnd ){
+            //                 flag = false;
+            //                 break;
+            //             } else if (a[j].classdate == x && pStart >= nStart &&  pEnd <= nEnd){
+            //                 flag = false;
+            //                 break;
+            //             }
+            //             if(flag == false)
+            //                 break;
+            //         }
+            //     }
+            // }
+
+
+
 
 
             for(var j = 0; j < a.length ; j++){
@@ -132,28 +162,6 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
                 }
 
             }
-
-
-
-
-
-            // for(var j = 0; j < a.length ; j++){
-            //     var pStart = a[j].start;
-            //     var pEnd = a[j].start + a[j].long -1;
-            //     var nStart = y;
-            //     var nEnd = y+ arr[i].long -1;
-            //     if(a[j].classdate == x && pStart <= nStart && pEnd >= nStart){
-            //         flag = false;
-            //         break;
-            //     } else if (a[j].classdate == x && pStart <= nEnd && pEnd >= nEnd ){
-            //         flag = false;
-            //         break;
-            //     } else if (a[j].classdate == x && pStart >= nStart &&  pEnd <= nEnd){
-            //         flag = false;
-            //         break;
-            //     }
-
-            // }
             //alert(arr.length);
             
             if(flag == true){
@@ -168,8 +176,10 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
         }
         //window.location.reload();
         //alert(a.length);
-        var testList = new Array();
-        var prevname = "";
+        var testArray = new Array();
+        var data = [];
+        var fortest = []; 
+        //var prevname = "";
         for(var i = 0; i<a.length ; i++){
             //alert(a[i].name);
             //alert(a[i].classdate);
@@ -179,25 +189,22 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
                 var cells = rows[colcell+k].getElementsByTagName("td");
                 cells[rowcell].innerHTML = a[i].name;
             }
-            // var data = new Object();
-            // var fortest = new Object();
-            // var tmpclassdate = new Array();
-            // var tmparray = new Array();
+            //var tmpclassdate = new Array();
+            //var tmparray = new Array();
             // if(prevname == a.name){
                 
             // }
-            
+            data[i] = new Object();
+            fortest[i] = new Object();
+            fortest[i].name = a[i].name;
+            //alert(a[i].name);
+            fortest[i].classdate = a[i].classdate;
+            fortest[i].start = a[i].start;
+            fortest[i].alarm = "Y";
+            data[i].activities = fortest[i];
+            testArray.push(data[i]);
         }
-        var data = new Object();
-        var fortest = new Object();
-        var jsonData = new Array();
-        fortest.name = "소프트웨어공학";
-        fortest.classdate = ["화", "금"];
-        fortest.start = ["C, C"];
-        fortest.alarm = "Y";
-        data.activities = fortest;
-        testList.push(data);
-        var jsonData = JSON.stringify(testList);
+        var jsonData = JSON.stringify(testArray, null, 4);
         alert(jsonData);
 
 
@@ -220,6 +227,7 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
                 }
             })
         }
+        socket.emit('jsondata', jsonData);
         }
         
         
