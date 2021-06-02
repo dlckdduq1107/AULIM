@@ -1,0 +1,88 @@
+{
+    "activities": [
+        {
+            "name": "기계학습",
+            "classdate": [
+                "수",
+                "금"
+            ],
+            "start": [
+                "F",
+                "F"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "데이터베이스",
+            "classdate": [
+                "월",
+                "수"
+            ],
+            "start": [
+                "C",
+                "C"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "드로잉 연습",
+            "classdate": [
+                "화",
+                "금"
+            ],
+            "start": [
+                "A",
+                "A"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "소프트웨어공학",
+            "classdate": [
+                "화",
+                "금"
+            ],
+            "start": [
+                "C",
+                "C"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "일본어1",
+            "classdate": [
+                "수",
+                "금"
+            ],
+            "start": [
+                "D",
+                "D"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "컴퓨터그래픽스",
+            "classdate": [
+                "월",
+                "목"
+            ],
+            "start": [
+                "B",
+                "B"
+            ],
+            "alarm": "Y"
+        },
+        {
+            "name": "컴퓨터통신",
+            "classdate": [
+                "화",
+                "목"
+            ],
+            "start": [
+                "B",
+                "A"
+            ],
+            "alarm": "Y"
+        }
+    ]
+}

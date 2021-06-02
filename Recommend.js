@@ -1,3 +1,12 @@
+var socket = io();
+var id;
+
+socket.on('recMsg', (data)=> {
+    console.log(data);
+    id = data.userId;
+    //setTimeout(printTable(), 500);
+});
+
 var arr = [];
 var count = 0;
 class act{
@@ -16,21 +25,25 @@ function actSubmit1(){
     var name1 = document.getElementById("act_name").value;
     var time1 = document.getElementById("time_input").value;
     var strn = name1 + "  " + time1 + "시간";
+    var time2 = parseInt(time1);
+    var tcount = time1 / 3;
+    var longArr = [];
+    if(time1 % 3 != 0){
+        for(var i = 0; i < tcount; i++ ){
+            longArr[i] = 3;
+        }
+        longArr[longArr.length] = time1%3;
+    }
     document.getElementById("rtn").append(strn);
     arr[count].name = name1;
-    arr[count].long = parseInt(time1);
+    arr[count].long = longArr;
     count++;
 }
 
-//const { json } = require("express");
-
-// function Calling(){
-//     Recommend(arr);
-// }
-
 
 function Recommend(){ // 추천시간표에 추가해야할 활동내용 
-    $.getJSON('time_table-wlstnsp1.json' , function(data){ // 기존 시간표 읽어오기
+    //$.getJSON('time_table-wlstnsp1.json' , function(data){ // 기존 시간표 읽어오기
+    $.getJSON(`../data/time_table-${id}.json`, function(data){
         var rows = document.getElementById("time_table").getElementsByTagName("tr");
         var cells = rows[4].getElementsByTagName("td");
         var i = 0;
@@ -78,14 +91,6 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
                     a[i].classdate = colcell;
                     a[i].start = rowcell;
                     a[i].long = long;
-                    
-                    // alert(a[i].name);
-                    // alert(a[i].start);
-                    // alert(a[i].long);
-                    // if(isNaN(value.start))
-                    //     a[i].long = 3;
-                    // else
-                    //     a[i].long = 2;
                     a[i].alarm = value.alarm;
                     i++;
 
@@ -100,25 +105,17 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
         var x = 0;
         var y = 0;
         while(true){ // selectarr를 inputarr만큼 얻을 때 까지 반복
-            // alert(a.length); 7나옴
             flag = true; // a arr에 값있는지 확인용
             x = Math.floor(Math.random()*6)+1   //랜덤으로 요일 설정
             y = Math.floor(Math.random()*30)+1   //랜덤으로 시간 설정
-            //alert(typeof(y));
-            //alert(typeof(arr[i].long));
             var lll = y+(arr[i].long)-1;
-            // alert(typeof(lll));
+
             if((lll) > 30){
-                //alert("abcd");
-                //alert(lll);
-                //alert(y + arr[i].long-1);
                 continue;
             }
-            //alert("success");
+
+
             for(var j = 0; j < a.length ; j++){
-                //var select = [x,y];    // a arr모양으로 랜덤값 설정
-                // alert(x);
-                // alert(y);
                 var pStart = a[j].start;
                 var pEnd = a[j].start + a[j].long -1;
                 var nStart = y;
@@ -133,11 +130,30 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
                     flag = false;
                     break;
                 }
-                // else if(a[j].classdate == x && pStart <= nEnd && pEnd <= nEnd){
-                //     flag  = false;
-                //     break;
-                // }
+
             }
+
+
+
+
+
+            // for(var j = 0; j < a.length ; j++){
+            //     var pStart = a[j].start;
+            //     var pEnd = a[j].start + a[j].long -1;
+            //     var nStart = y;
+            //     var nEnd = y+ arr[i].long -1;
+            //     if(a[j].classdate == x && pStart <= nStart && pEnd >= nStart){
+            //         flag = false;
+            //         break;
+            //     } else if (a[j].classdate == x && pStart <= nEnd && pEnd >= nEnd ){
+            //         flag = false;
+            //         break;
+            //     } else if (a[j].classdate == x && pStart >= nStart &&  pEnd <= nEnd){
+            //         flag = false;
+            //         break;
+            //     }
+
+            // }
             //alert(arr.length);
             
             if(flag == true){
@@ -152,6 +168,8 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
         }
         //window.location.reload();
         //alert(a.length);
+        var testList = new Array();
+        var prevname = "";
         for(var i = 0; i<a.length ; i++){
             //alert(a[i].name);
             //alert(a[i].classdate);
@@ -161,8 +179,51 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
                 var cells = rows[colcell+k].getElementsByTagName("td");
                 cells[rowcell].innerHTML = a[i].name;
             }
+            // var data = new Object();
+            // var fortest = new Object();
+            // var tmpclassdate = new Array();
+            // var tmparray = new Array();
+            // if(prevname == a.name){
+                
+            // }
+            
+        }
+        var data = new Object();
+        var fortest = new Object();
+        var jsonData = new Array();
+        fortest.name = "소프트웨어공학";
+        fortest.classdate = ["화", "금"];
+        fortest.start = ["C, C"];
+        fortest.alarm = "Y";
+        data.activities = fortest;
+        testList.push(data);
+        var jsonData = JSON.stringify(testList);
+        alert(jsonData);
+
+
+        var mergeItem = ""; //병합구분값
+        var mergeCount = 0; //병합 수
+        var mergeRowNum = 0;  //병합들num갈 r1w
+        for (var num = 1; num < 7; num++) {
+            $('tr','#time_table').each(function(row){  // #테이블ID값
+                if(row > 0 ){
+                    var item = $(':eq(' + num +')',$(this)).html();
+                    if(mergeItem != item  ) {
+                        mergeCount = 1;
+                        mergeItem = item ;
+                        mergeRowNum = row;
+                    }else{
+                        mergeCount = mergeCount + 1;
+                        $("tr:eq("+mergeRowNum+") > td:eq("+num+")").attr("rowspan",mergeCount);
+                        $('td:eq('+num+')',$(this)).hide(); //병합될 값들 숨김처리
+                    }
+                }
+            })
         }
         }
+        
+        
+
     )
 }
 

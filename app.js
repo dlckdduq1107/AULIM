@@ -1,4 +1,3 @@
-
 const express = require('express');
 const app = express();
 const path = require ('path');
@@ -19,7 +18,8 @@ app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.urlencoded({extended : true}));
 app.use(express.json());
 app.use(cookieParser());
-app.use('/data', express.static(path.join(__dirname + '/data')));
+app.use('/data', express.static(path.join(__dirname, '/data')));
+app.use(express.static(__dirname+"/"))
 app.use(expressSession({
     secret : 'secret',
     resave : false,
@@ -31,6 +31,10 @@ app.use(expressSession({
 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
+
+
+let io = require('socket.io').listen(server);
+
 
 app.get('/', (req, res) => {
     if(req.session.user) {
@@ -64,7 +68,7 @@ app.get('/register', (req, res) => {
     res.render('register.html');
 });
 
-let io = require('socket.io').listen(server);
+
 
 app.post('/login_check', (req, res) => {
     let id = req.body.userid;
@@ -89,21 +93,19 @@ app.post('/login_check', (req, res) => {
         console.log('made session')
         console.log(`id : ${id}`);
 
-        // PythonShell.run('./scripts/sele.py', options, (err, data) => {
-        //     fs.writeFileSync(`./data/time_table-${id}.json`, JSON.stringify(JSON.parse(data), null, 4));
+         PythonShell.run('./scripts/sele.py', options, (err, data) => {
+             fs.writeFileSync(`./data/time_table-${id}.json`, JSON.stringify(JSON.parse(data), null, 4));
+         });
 
-        //     io.on('connection', (socket) => {
-        //         console.log('socket connected');
-        //         socket.emit('recMsg', {userId : id});
-        //     });
-        //     res.redirect('/')
-        // });
         io.on('connection', (socket) => {
             console.log('socket connected');
             socket.emit('recMsg', {userId : id});
+            // socket.emit('recMsg2', {userId : id});
         });
-        res.redirect('/schedule')
+        res.redirect('/')
+
     }
+
 });
 
 
@@ -151,11 +153,8 @@ app.post('/save_memo', (req, res) => {
     }
 }); 
 
+
 server.listen(3000, () => {
     console.log('server started.');
 });
-
-app.use('/printTT.js', express.static(__dirname+"/printTT.js"));
-app.use('/Recommend.js', express.static(__dirname+"/Recommend.js"));
-app.use(express.static(__dirname+"/data"))
 
