@@ -16,7 +16,8 @@ options.add_argument("window-size=1920x1080")
 options.add_argument("--log-level=3")
 options.add_argument("disable-gpu")
 
-driver = webdriver.Chrome("./driver/chromedriver.exe", chrome_options = options)
+driver = webdriver.Chrome("./driver/chromedriver91.exe", chrome_options = options) # 91 version driver
+#driver = webdriver.Chrome("./driver/chromedriver.exe", chrome_options = options) # 89 version driver
 driver.set_window_size(1280, 1080)
 driver.implicitly_wait(10)
 
