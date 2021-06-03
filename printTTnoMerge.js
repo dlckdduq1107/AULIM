@@ -8,7 +8,7 @@ window.onload = function() {
 socket.on('recMsg2', (data)=> {
     console.log('Msg2 recieved.');
     id = data.userId;
-    setTimeout(printTable(), 500);
+    printTable();
 });
 
 

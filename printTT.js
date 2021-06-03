@@ -7,6 +7,14 @@ socket.on('recMsg', (data)=> {
     setTimeout(printTable(), 500);
 });
 
+socket.on('logout', (data) => {
+    resetTable();
+})
+
+
+function resetTable() {
+    
+}
 
 function printTable() {
     class act{

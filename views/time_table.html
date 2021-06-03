@@ -38,7 +38,7 @@
                     <li><a href="/schedule">계획표 추천</a></li>
                     <li><a href="/memo">강의 메모</a></li>
 
-                    <div class="login_box">
+                    <div class="login_box" id="login_box">
                         <form class="login_form" action="login_check" method="post"> 
                             <label for="username">ID</label>
                             <button type="submit">Login</button>
@@ -49,13 +49,34 @@
                             <input id="user_pw" name="userpw" type="password"/>
                             <button type="button" onclick="location.href='/register'">Register</button>
                         </form>
-                        <form id="logout_button" action="logout" method="post">
-                            <button type="submit">Logout</button>
-                        </form>
-                    </div>
-                    <div class="login_button">
                         
                     </div>
+                    <form id="logout_button" action="logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                    <form action="crawl_time_table" method="post">
+                        <button type="submit" id="crawl_button">시간표 가져오기</button>
+                    </form>
+
+                    <script>
+                        var socket = io();
+                        var login_box = document.getElementById('login_box');
+                        var logout_button = document.getElementById('logout_button');
+                        var crawl_button = document.getElementById('crawl_button');
+
+                        socket.on('login', (id) => {
+                            login_box.style.display = 'none';
+                            logout_button.style.display = 'block'
+                            crawl_button.style.display = 'block';
+                        });
+                        
+                        socket.on('logout', () => {
+                            login_box.style.display = 'block';
+                            logout_button.style.display = 'none';
+                            crawl_button.style.display = 'none';
+                        });
+ 
+                    </script>
                   </ul>   
               </nav>
           </div>
