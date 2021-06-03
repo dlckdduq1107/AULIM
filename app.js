@@ -9,6 +9,7 @@ const http = require('http');
 const server = http.createServer(app);
 const sql_manager = require('./modules/sql_manager');
 
+
 app.use('/modules', express.static(__dirname + "/modules")); //자바스크립트 파일을 사용하기 위해 경로를 설정해줘야함(nodejs)
 app.use(express.static(path.join(__dirname + '/public')));
 app.use(express.static(path.join(__dirname + '/')));
@@ -88,6 +89,13 @@ app.post('/login_check', (req, res) => {
             socket.emit('recMsg2', {userId : id});
             socket.on('jsondata',(data)=>{
                 fs.writeFile("timetable-recommend.json", data, function(err){
+                    if(err){
+                        console.log(err);
+                    }
+                })
+            });
+            socket.on('addact',(data)=>{
+                fs.writeFile("timetable-added.json", data, function(err){
                     if(err){
                         console.log(err);
                     }

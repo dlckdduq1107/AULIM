@@ -11,6 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="../printTT.js"></script>
+    <script src="../add_Act.js"></script>
     <!-- <script src="../modules/test.js"></script> -->
 
     <script>
@@ -220,9 +221,9 @@
               <form name="act_plus" id="act_plus">
                   <fieldset style="width: 250px">
                       <legend>새로운 활동 추가</legend>
-                        활동명: <input type="text" name="act_name"> <br><br>
+                        활동명: <input type="text" id="act_name"> <br><br>
                         날짜: <br>
-                        <select name="weeks">
+                        <select id="weeks">
                             <option value="monday">월요일</option>
                             <option value="tuesday">화요일</option>
                             <option value="wednesday">수요일</option>
@@ -230,7 +231,7 @@
                             <option value="friday">금요일</option>
                             <option value="saturday">토요일</option>
                         </select> <br>
-                        <select name="start-hours">
+                        <select id="start-hours">
                             <option value="9">9시</option>
                             <option value="10">10시</option>
                             <option value="11">11시</option>
@@ -239,30 +240,32 @@
                             <option value="14">14시</option>
                             <option value="15">15시</option>
                         </select>
-                      <select name="start-seconds">
+                      <select id="start-seconds">
                           <option value="0">0분</option>
-                          <option value="15">15분</option>
+                          <!-- <option value="15">15분</option> -->
                           <option value="30">30분</option>
-                          <option value="45">45분</option>
+                          <!-- <option value="45">45분</option> -->
                       </select>
-                      ~
-                      <select name="end-hours">
-                          <option value="9">9시</option>
-                          <option value="10">10시</option>
-                          <option value="11">11시</option>
-                          <option value="12">12시</option>
-                          <option value="13">13시</option>
-                          <option value="14">14시</option>
-                          <option value="15">15시</option>
-                      </select>
-                      <select name="end-seconds">
-                          <option value="0">0분</option>
-                          <option value="15">15분</option>
-                          <option value="30">30분</option>
-                          <option value="45">45분</option>
-                      </select>
+                      <!-- ~ -->
                       <br><br>
-                      <input type="button" value="submit" onclick="actSubmit()">
+                      길이:
+                      <select id="long">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                      </select>
+                      <!-- <select name="end-seconds">
+                          <option value="0">0</option>
+                          <option value="15">15</option>
+                          <option value="30">30</option>
+                          <option value="45">45</option>
+                      </select> -->
+                      <br><br>
+                      <input type="button" value="submit" onclick="actSubmit2()">
                   </fieldset>
               </form>
               <br>
