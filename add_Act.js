@@ -10,4 +10,4 @@ function actSubmit1(act_name, time_input){
     arr[count].time = time1;
     if(count != 0)
     count++;
-}
+} 
