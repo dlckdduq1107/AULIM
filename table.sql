@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `aulim`.`activity` (
   `Index` INT NOT NULL AUTO_INCREMENT,
   `actName` VARCHAR(15) NOT NULL,
-  `actTime` TIME NOT NULL,
+  `actTime` VARCHAR(15) NOT NULL,
   `alarm` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`Index`))
 ENGINE = InnoDB;
