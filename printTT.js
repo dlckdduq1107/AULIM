@@ -82,10 +82,14 @@ function printTable() {
         // var mergeCount = 0; //병합 수
         // var mergeRowNum = 0;  //병합들num갈 r1w
         // for (var num = 1; num < 7; num++) {
+        //     mergeItem = ".";
+        //     mergeCount = 0;
+        //     mergeRowNum = 0;
         //     $('tr','#time_table').each(function(row){  // #테이블ID값
         //         if(row > 0 ){
         //             var item = $(':eq(' + num +')',$(this)).html();
         //             if(mergeItem != item  ) {
+        //                 alert(row);
         //                 mergeCount = 1;
         //                 mergeItem = item ;
         //                 mergeRowNum = row;

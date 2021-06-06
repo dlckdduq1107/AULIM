@@ -1,0 +1,425 @@
+[
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 2,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 2,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 2,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 5,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 5,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 5,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 3,
+            "classdate": 2,
+            "start": 10,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 3,
+            "classdate": 2,
+            "start": 10,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 3,
+            "classdate": 2,
+            "start": 10,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 3,
+            "classdate": 4,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 3,
+            "classdate": 4,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 3,
+            "classdate": 4,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 2,
+            "classdate": 5,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 2,
+            "classdate": 5,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 2,
+            "classdate": 5,
+            "start": 15,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "시스템프로그래밍및실습",
+            "long": 2,
+            "classdate": 5,
+            "start": 15,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "인공지능",
+            "long": 3,
+            "classdate": 1,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "인공지능",
+            "long": 3,
+            "classdate": 1,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "인공지능",
+            "long": 3,
+            "classdate": 1,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "인공지능",
+            "long": 3,
+            "classdate": 4,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "인공지능",
+            "long": 3,
+            "classdate": 4,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "인공지능",
+            "long": 3,
+            "classdate": 4,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본근현대사",
+            "long": 2,
+            "classdate": 3,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본근현대사",
+            "long": 2,
+            "classdate": 3,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본근현대사",
+            "long": 2,
+            "classdate": 3,
+            "start": 18,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본근현대사",
+            "long": 2,
+            "classdate": 3,
+            "start": 18,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본근현대사",
+            "long": 2,
+            "classdate": 3,
+            "start": 20,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본근현대사",
+            "long": 2,
+            "classdate": 3,
+            "start": 20,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본입문",
+            "long": 3,
+            "classdate": 1,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본입문",
+            "long": 3,
+            "classdate": 1,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본입문",
+            "long": 3,
+            "classdate": 1,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본입문",
+            "long": 3,
+            "classdate": 4,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본입문",
+            "long": 3,
+            "classdate": 4,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본입문",
+            "long": 3,
+            "classdate": 4,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 2,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 2,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 2,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 4,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 4,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 4,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "한국경제론",
+            "long": 3,
+            "classdate": 1,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "한국경제론",
+            "long": 3,
+            "classdate": 1,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "한국경제론",
+            "long": 3,
+            "classdate": 1,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "한국경제론",
+            "long": 3,
+            "classdate": 3,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "한국경제론",
+            "long": 3,
+            "classdate": 3,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "한국경제론",
+            "long": 3,
+            "classdate": 3,
+            "start": 13,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "수학1",
+            "long": 1,
+            "classdate": 1,
+            "start": 1,
+            "alarm": "Y"
+        }
+    }
+]

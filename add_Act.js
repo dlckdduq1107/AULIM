@@ -25,6 +25,7 @@ function actSubmit2(){
     var instarth = document.getElementById("start-hours").value;
     var instartm = document.getElementById("start-seconds").value;
     var inlong = document.getElementById("long").value;
+    inlong = parseInt(inlong);
     var instart;
     if(parseInt(instartm) == 30){
         instart = parseFloat(instarth) + 0.5;
@@ -56,11 +57,8 @@ function actSubmit2(){
             alert("error!");
     }
     rowcell = instart * 2 - 17;
-    //alert(rowcell);
-    
     arr[count] = new act(name1, colcell, rowcell, inlong, true);
-    alert(arr[count].start);
-    //count++;
+
 
     var a = [];
 
@@ -118,48 +116,50 @@ function actSubmit2(){
             });   
             
         })
-        alert(arr.length);
+        //------기존제이슨 읽음
+        
         var flag = true;
-
         var lll = arr[count].start+(arr[count].long)-1;
             if((lll) > 30){
                 flag = false;
             }
 
-        
         for(var j = 0; j < a.length ; j++){
             var pStart = a[j].start;
             var pEnd = a[j].start + a[j].long -1;
             var nStart = arr[count].start;
             var nEnd = arr[count].start + arr[count].long -1;
             if(a[j].classdate == arr[count].classdate && pStart <= nStart && pEnd >= nStart){
+                
                 flag = false;
                 break;
             } else if (a[j].classdate == arr[count].classdate && pStart <= nEnd && pEnd >= nEnd ){
                 flag = false;
+                
                 break;
             } else if (a[j].classdate == arr[count].classdate && pStart >= nStart &&  pEnd <= nEnd){
                 flag = false;
+                alert(pStart);
+                alert(nStart);
+                alert(pEnd);
+                alert(nEnd);
                 break;
             }
         }
 
         if(flag==false){
             alert("유효하지 않은 시간");
-            // return(-1);
+            return(-1);
         }
 
         for(var i =0; i< arr.length; i++){
             var alength = a.length;
-            alert(arr[i].classdate);
-            alert(arr[i].start);
             a[alength] = new act(arr[i].name, arr[i].classdate, arr[i].start, arr[i].long, true);
         }
-            
-        //alert(a);
-        //alert(a[a.length-1]);
-        
-        // var fortest = [];
+
+        var testArray = new Array();
+        var data = [];
+        var fortest = [];
 
         for(var i = 0; i< a.length ; i++){
             var rowcell = a[i].classdate;
@@ -169,27 +169,24 @@ function actSubmit2(){
                 var cells = rows[colcell+k].getElementsByTagName("td");
                 cells[rowcell].innerHTML = a[i].name;
 
-                // data[i] = new Object();
-                // fortest[i] = new Object();
-                // fortest[i].name = a[i].name;
-                // //alert(a[i].name);
-                // fortest[i].classdate = a[i].classdate;
-                // fortest[i].start = a[i].start;
-                // fortest[i].alarm = "Y";
-                // data[i].activities = fortest[i];
-                // testArray.push(data[i]);
+                data[i] = new Object();
+                fortest[i] = new Object();
+                fortest[i].name = a[i].name;
+                fortest[i].long = a[i].long;
+                fortest[i].classdate = a[i].classdate;
+                fortest[i].start = a[i].start;
+                fortest[i].alarm = "Y";
+                data[i].activities = fortest[i];
+                testArray.push(data[i]);
             }
         }
         var jsonData = JSON.stringify(testArray, null, 4);
-        socket.emit('jsondata', jsonData);
+        socket.emit('addact', jsonData);
         //app.js에서 recommend랑 구분필요    
     //document.getElementById("rtn").append(strn);
     })
 
 }
-
-
-
 
 function pageReload(){
     window.location.reload();
