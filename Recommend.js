@@ -164,7 +164,7 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
 
 
         
-        for (var num = 1; num < 7; num++) {
+        for (var num = 1; num <= 7; num++) {
             var mergeItem = "절대나올수없는값"; //병합구분값
             var mergeCount = 0; //병합 수
             var mergeRowNum = 0;  //병합들num갈 r1w
