@@ -67,6 +67,7 @@ app.get('/register', (req, res) => {
 
 let io = require('socket.io').listen(server);
 
+
 app.post('/login_check', (req, res) => {
     let id = req.body.userid;
     let pw = req.body.userpw;
@@ -112,12 +113,13 @@ app.post('/login_check', (req, res) => {
 
         });
         
-        var query = `INSERT INTO memo (Inndex, userID, wdate, mdate, context) VALUES ('5', '1234', '2020-02-02', '2020-02-02', 'asdf')`;
-        sql_manager.execute(query);
-
+        
         res.redirect('/')
     }   
-});
+}); 
+
+
+let jsonChanger = require('./modules/jsonChanger');
 
 app.post('/crawl_time_table', (req, res) => {
     if(req.session.user) {
@@ -125,18 +127,25 @@ app.post('/crawl_time_table', (req, res) => {
         let pw = req.session.user.pw;
 
         let options = {
-            args : [id, pw]
+            args : [id, pw] 
         };
 
         console.log('start crawling...');
         PythonShell.run('./scripts/sele.py', options, (err, data) => {
-            fs.writeFileSync(`./data/time_table-${id}.json`, JSON.stringify(JSON.parse(data), null, 4));
+                io.on('connection', (socket) => {
+                    socket.emit('recMsg', {userId : id});
+                });
+             let changed = jsonChanger.change(data);
+             fs.writeFileSync(`./data/time_table-${id}.json`, changed);
+             res.redirect('/');
         });
+        
     }
     else {
         console.log('crawling failed.');
+        res.redirect('/');
     }
-    res.redirect('/');
+    
 });
 
 app.post('/logout', (req, res) => {
