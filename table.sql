@@ -42,11 +42,12 @@ ENGINE = InnoDB;
 -- Table `aulim`.`activity`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `aulim`.`activity` (
-  `Index` INT NOT NULL AUTO_INCREMENT,
-  `actName` VARCHAR(15) NOT NULL,
-  `actTime` TIME NOT NULL,
-  `alarm` TINYINT NOT NULL DEFAULT 0,
-  PRIMARY KEY (`Index`))
+  `user` VARCHAR(60) NOT NULL,
+  `classdate` INT NOT NULL,
+  `start` INT NOT NULL,
+  `long` INT NOT NULL,
+  `name` VARCHAR(60) NOT NULL,
+  PRIMARY KEY (`user`, `classdate`, `start`, `long`, `name`))
 ENGINE = InnoDB;
 
 

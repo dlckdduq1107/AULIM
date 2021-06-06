@@ -7,7 +7,21 @@ const fs = require('fs');
 const {PythonShell} = require('python-shell');
 const http = require('http'); 
 const server = http.createServer(app);
-const sql_manager = require('./modules/sql_manager');
+
+
+var db_config = require('./database.js');
+var conn = db_config.init();
+db_config.connect(conn);
+
+class act{
+    constructor(name, classdate, start, long, alarm){
+        this.name = name;
+        this.classdate = classdate;
+        this.start = start;
+        this.long = long;
+        this.alarm = alarm;
+    }
+}
 
 
 app.use('/modules', express.static(__dirname + "/modules")); //자바스크립트 파일을 사용하기 위해 경로를 설정해줘야함(nodejs)
@@ -99,8 +113,10 @@ app.post('/login_check', (req, res) => {
             console.log('socket connected');
             socket.emit('recMsg', {userId : id});
             socket.emit('recMsg2', {userId : id});
+
+        
             socket.on('jsondata',(data)=>{
-                fs.writeFile("timetable-recommend.json", data, function(err){
+                fs.writeFile(`/data/time_table-${id}.json`, data, function(err){
                     if(err){
                         console.log(err);
                     }
@@ -109,7 +125,7 @@ app.post('/login_check', (req, res) => {
             socket.on('addact',(data)=>{
                 fs.writeFile("timetable-added.json", data, function(err){
                     if(err){
-                        console.log(err);
+                        console.log(err); 
                     }
                 })
             });
@@ -117,7 +133,27 @@ app.post('/login_check', (req, res) => {
             socket.on('logout', () => {
                 console.log('user logged out.');
             })
-
+            socket.on('query',(data)=>{
+                conn.query(data);
+            });
+            socket.on('query2',(query2)=>{
+                var testArray = new Array();
+                var data = [];
+                var fortest = [];
+                var a = [];
+                conn.query(query2, function(err, rows){
+                if(!err){
+                    for(var i = 0; i< rows.length ; i++){
+                        a[i] = new act(rows[i].name, rows[i].classdate, rows[i].start, rows[i].long, 'Y');
+                        console.log(a[i]);
+                    }
+                    //var jsonData = JSON.stringify(testArray, null, 4);
+                }else{
+                    console.log("Error while performing Query", err);
+                }
+                socket.emit('qanswer', a);
+                });
+            });
         });
 
         let options = {
@@ -132,7 +168,7 @@ app.post('/login_check', (req, res) => {
         
         res.redirect('/')
     }   
-}); 
+});
 
 
 let jsonChanger = require('./modules/jsonChanger');
@@ -152,10 +188,9 @@ app.post('/crawl_time_table', (req, res) => {
                     socket.emit('recMsg', {userId : id});
                 });
              let changed = jsonChanger.change(data);
-             fs.writeFileSync(`./data/time_table-${id}.json`, changed);
+             fs.writeFileSync(`./data/time_table-${id}.json`, changed);  
              res.redirect('/');
         });
-
     }
     else {
         console.log('crawling failed.');
