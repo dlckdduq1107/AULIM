@@ -43,6 +43,17 @@ app.get('/', (req, res) => {
 
 
 app.get('/activity_stream', (req, res) => {
+    if(req.session.user.id) {
+        fs.readFile(`./data/streams/stream_${req.session.user.id}.txt`, 'utf-8', (err, data) => {
+            io.on('connection', (socket) => {
+                socket.emit('stream', {data : data});
+            });
+            
+        });
+        
+    }
+    
+
     res.render('activity_stream.html');
 });
 
@@ -108,6 +119,15 @@ app.post('/login_check', (req, res) => {
             })
 
         });
+
+        let options = {
+            args : [id, pw] 
+        };
+
+        PythonShell.run('./scripts/stream.py', options, (err, data) => {
+         
+         
+        });
         
         
         res.redirect('/')
@@ -135,7 +155,7 @@ app.post('/crawl_time_table', (req, res) => {
              fs.writeFileSync(`./data/time_table-${id}.json`, changed);
              res.redirect('/');
         });
-        
+
     }
     else {
         console.log('crawling failed.');

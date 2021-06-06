@@ -3,7 +3,6 @@ const empty = async(index) => {
    for (var i = 1; i <= index; i++) {//인원수만큼 반복
       $.getJSON(`../data/sample_empty/student${i}.json`, function(data){//제이슨 파일 읽기
         var rows = document.getElementById("time_table").getElementsByTagName("tr");
-        var cells = rows[4].getElementsByTagName("td");
         $.each(data,function(key1,value1){
             $.each(value1,function(key,value){
                 console.log(value);
@@ -26,7 +25,6 @@ const empty = async(index) => {
    
     }
 
-
     var tab = document.getElementById('time_table');//타임테이블 로드
     for(var i=1; i<32; i++) {//총 가로 길이
         for(var j=1; j<7; j++) {//총 세로 길이
@@ -37,7 +35,7 @@ const empty = async(index) => {
 
 
     setTimeout(function(){//셀병합 부분
-      for (var num = 1; num < 7; num++) {
+      for (var num = 1; num <= 7; num++) {
         var mergeItem = "절대나올수 없는값"; //병합구분값
         var mergeCount = 0; //병합 수
         var mergeRowNum = 0;  //병합들num갈 
@@ -56,6 +54,16 @@ const empty = async(index) => {
               }
           })
       }
+    setTimeout(()=> {for (var num = 1; num <= 7; num++) {
+        $('tr','#time_table').each(function(row){  // #테이블ID값
+            if(row > 0 ){
+            mergeCount = mergeCount + 1;
+            $("tr:eq("+row+") > td:eq("+num+")").attr("rowspan",1);
+            $('td:eq('+num+')',$(this)).show(); //병합될 값들 숨김처리
+            }
+        })
+    }}, 1000)
+       
     },1000);//비동기화 문젤 해결을 위한 setTimeout
 
 

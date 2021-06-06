@@ -7,12 +7,11 @@
     <title>time_table</title>
     <link rel="stylesheet" href="/css/Group.css">
     <!--     제이쿼리 사용하기 위한 불러오기(?)-->
-    <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <script src="/socket.io/socket.io.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/modules/empty_class.js"></script>
     <!-- <script src="../printTT.js"></script> -->
     <!-- <script src="../modules/test.js"></script> -->
-
     <script>
         function actSubmit(){
             var queryString=$('#act_plus').serializeArray();
@@ -27,38 +26,58 @@
         }
     </script>
 </head>
-       <header>
-           <div class="top_bar">
-              <h1><a href="/" id="logo">AULIM</a></h1>
-              <nav>
-                  <ul class="menu">
-                    <li><a href="/activity_stream">스트림</a></li>
-                    <li><a href="/">시간표</a></li>
-                    <li><a href="/Group">공강시간</a></li>
-                    <li><a href="/schedule">계획표 추천</a></li>
-                    <li><a href="/memo">강의 메모</a></li>
+    <div class="top_bar">
+        <h1><a href="/" id="logo">AULIM</a></h1>
+        <nav>
+            <ul class="menu">
+            <li><a href="/activity_stream">스트림</a></li>
+            <li><a href="/">시간표</a></li>
+            <li><a href="/Group">공강시간</a></li>
+            <li><a href="/schedule">계획표 추천</a></li>
+            <li><a href="/memo">강의 메모</a></li>
 
-                    <div class="login_box">
-                        <form class="login_form" action="login_check" method="post"> 
-                            <label for="username">ID</label>
-                            <button type="submit">Login</button>
-                            
-                            <input id="user_id" name="userid" type="text"/>
-                            
-                            <label for="userpw">PW</label>
-                            <input id="user_pw" name="userpw" type="password"/>
-                            <button type="button" onclick="location.href='/register'">Register</button>
-                        </form>
-                        <form id="logout_button" action="logout" method="post">
-                            <button type="submit">Logout</button>
-                        </form>
-                    </div>
-                    <div class="login_button">
-                        
-                    </div>
-                  </ul>   
-              </nav>
-          </div>
+            <div class="login_box" id="login_box">
+                <form class="login_form" action="login_check" method="post"> 
+                    <label for="username">ID</label>
+                    <button type="submit">Login</button>
+                    
+                    <input id="user_id" name="userid" type="text"/>
+                    
+                    <label for="userpw">PW</label>
+                    <input id="user_pw" name="userpw" type="password"/>
+                    <button type="button" onclick="location.href='/register'">Register</button>
+                </form>
+                
+            </div>
+            <form id="logout_button" action="logout" method="post">
+                <button type="submit">Logout</button>
+            </form>
+            <form action="crawl_time_table" method="post">
+                <button type="submit" id="crawl_button">시간표 가져오기</button>
+            </form>
+
+            <script>
+                var socket = io();
+                var login_box = document.getElementById('login_box');
+                var logout_button = document.getElementById('logout_button');
+                var crawl_button = document.getElementById('crawl_button');
+
+                socket.on('login', (id) => {
+                    login_box.style.display = 'none';
+                    logout_button.style.display = 'block'
+                    crawl_button.style.display = 'block';
+                });
+                
+                socket.on('logout', () => {
+                    login_box.style.display = 'block';
+                    logout_button.style.display = 'none';
+                    crawl_button.style.display = 'none';
+                });
+
+            </script>
+            </ul>   
+        </nav>
+    </div>
        </header>
        <div class="title">
          <div style="font-size: 3rem;">time_table</div>
@@ -74,7 +93,7 @@
             <button>그룹 생성</button> <button>그룹 삭제</button>
             <div class=groupbox>그룹 1
                 <button>멤버추가</button>
-                <button onclick="empty(3);">공강시간 확인</button>
+                <button onclick="empty(2);">공강시간 확인</button>
                 <div class="member">김진수<button>X</button></div>
                 <div class="member">이재협<button>X</button></div>
                 <div class="member">이창엽<button>X</button></div>

@@ -1,90 +1,137 @@
-{
-    "activities": [
-        {
+[
+    {
+        "activities": {
             "name": "ERP - MM",
-            "classdate": [
-                "월",
-                "월",
-                "월"
-            ],
-            "start": [
-                "11",
-                "12",
-                "13"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "데이터 애널리틱스-R기반 통계",
-            "classdate": [
-                "월",
-                "목"
-            ],
-            "start": [
-                "B",
-                "B"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "데이터관리론",
-            "classdate": [
-                "화",
-                "목"
-            ],
-            "start": [
-                "F",
-                "E"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "소비자행동론",
-            "classdate": [
-                "화",
-                "목"
-            ],
-            "start": [
-                "D",
-                "C"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "소프트웨어공학",
-            "classdate": [
-                "화",
-                "금"
-            ],
-            "start": [
-                "C",
-                "C"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "수학2",
-            "classdate": [
-                "월",
-                "수"
-            ],
-            "start": [
-                "A",
-                "A"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "의사결정모델",
-            "classdate": [
-                "화",
-                "목"
-            ],
-            "start": [
-                "B",
-                "A"
-            ],
+            "classdate": 1,
+            "start": 21,
+            "long": 2,
             "alarm": "Y"
         }
-    ]
-}
+    },
+    {
+        "activities": {
+            "name": "ERP - MM",
+            "classdate": 1,
+            "start": 23,
+            "long": 2,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "ERP - MM",
+            "classdate": 1,
+            "start": 25,
+            "long": 2,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터 애널리틱스-R기반 통계",
+            "classdate": 1,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터 애널리틱스-R기반 통계",
+            "classdate": 4,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터관리론",
+            "classdate": 2,
+            "start": 16,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터관리론",
+            "classdate": 4,
+            "start": 13,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소비자행동론",
+            "classdate": 2,
+            "start": 10,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소비자행동론",
+            "classdate": 4,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "classdate": 2,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "classdate": 5,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "수학2",
+            "classdate": 1,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "수학2",
+            "classdate": 3,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "의사결정모델",
+            "classdate": 2,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "의사결정모델",
+            "classdate": 4,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    }
+]

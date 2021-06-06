@@ -1,11 +1,21 @@
 var socket = io();
-var id;
+var id="";
+var login_flag = 0;
 
 socket.on('recMsg', (data)=> {
-    console.log(data);
     id = data.userId;
-    setTimeout(printTable(), 500);
+    login_flag = 1;    
 });
+
+socket.on('logout', () => {
+    login_flag = 0;
+});
+
+setTimeout(() => {
+    if (login_flag == 1){
+        printTable();
+        }
+}, 100);
 
 function resetTable() {
     
@@ -25,7 +35,10 @@ function printTable() {
         var rows = document.getElementById("time_table").getElementsByTagName("tr");
         var cells = rows[4].getElementsByTagName("td");
         var a = [];
+
         
+           
+
         $.each(data,function(key1,value1){
             $.each(value1,function(key,value){
                 console.log(value);
@@ -43,7 +56,7 @@ function printTable() {
             });
         });
         
-        for (var num = 1; num < 7; num++) {
+        for (var num = 1; num <= 7; num++) {
             var mergeItem = "q"; //병합구분값
             var mergeCount = 0; //병합 수
             var mergeRowNum = 0;  //병합들num갈 r1w
@@ -61,6 +74,7 @@ function printTable() {
                     }
                 }
             })
+            
         }
     });
 }

@@ -1,6 +1,7 @@
 var socket = io();
 var id;
 
+
 socket.on('recMsg', (data)=> {
     console.log(data);
     id = data.userId;

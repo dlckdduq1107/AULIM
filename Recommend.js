@@ -235,6 +235,8 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
     )
 }
 
+
+
 function pageReload(){
     window.location.reload();
 }

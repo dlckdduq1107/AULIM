@@ -1,94 +1,128 @@
-{
-    "activities": [
-        {
-            "name": "소프트웨어공학",
-            "classdate": [
-                "화",
-                "금"
-            ],
-            "start": [
-                "C",
-                "C"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "시스템프로그래밍및실습",
-            "classdate": [
-                "화",
-                "목",
-                "금",
-                "금"
-            ],
-            "start": [
-                "D",
-                "C",
-                "7",
-                "8"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "인공지능",
-            "classdate": [
-                "월",
-                "목"
-            ],
-            "start": [
-                "B",
-                "B"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "일본근현대사",
-            "classdate": [
-                "수",
-                "수",
-                "수"
-            ],
-            "start": [
-                "8.5",
-                "9.5",
-                "10.5"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "일본입문",
-            "classdate": [
-                "월",
-                "목"
-            ],
-            "start": [
-                "F",
-                "F"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "컴퓨터통신",
-            "classdate": [
-                "화",
-                "목"
-            ],
-            "start": [
-                "B",
-                "A"
-            ],
-            "alarm": "Y"
-        },
-        {
-            "name": "한국경제론",
-            "classdate": [
-                "월",
-                "수"
-            ],
-            "start": [
-                "E",
-                "E"
-            ],
+[
+    {
+        "activities": {
+            "name": "기계학습",
+            "classdate": 3,
+            "start": 16,
+            "long": 3,
             "alarm": "Y"
         }
-    ]
-}
+    },
+    {
+        "activities": {
+            "name": "기계학습",
+            "classdate": 5,
+            "start": 16,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "classdate": 1,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "classdate": 3,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "classdate": 2,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "classdate": 5,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "classdate": 2,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "classdate": 5,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본어1",
+            "classdate": 3,
+            "start": 10,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본어1",
+            "classdate": 5,
+            "start": 10,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터그래픽스",
+            "classdate": 1,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터그래픽스",
+            "classdate": 4,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "classdate": 2,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "classdate": 4,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    }
+]

@@ -1,14 +1,14 @@
-var a = [];
+
 
 function change(data) {
-    console.log('asdf');
+    var a = [];
     jsonData = JSON.parse(data);
 
     for(var i=0; i<jsonData['activities'].length; i++) {
         for(var j=0; j<jsonData['activities'][i]['classdate'].length; j++) {
             act = jsonData['activities'][i];
             var newAct = {'activities' : ''};
-            newAct['activities'] = {'name':'', 'classdate':'', 'start':'', 'long':'', 'alarm':''};
+            newAct['activities'] = {'name':'', 'classdate':'', 'start':'', 'long':''};
             newAct['activities']['name'] = act['name'];
             newAct['activities']['classdate'] = datToInt(jsonData['activities'][i]['classdate'][j]);
 
@@ -29,7 +29,6 @@ function change(data) {
             
             newAct['activities']['start'] = rowcell;
             newAct['activities']['long'] = long;
-            newAct['activities']['alarm'] = 'Y';
 
             a.push(newAct);
         }
@@ -50,6 +49,8 @@ function datToInt(day) {
             return 4;
         case '금':
             return 5;
+        case '토':
+            return 6;
         default:
             break;
     }
