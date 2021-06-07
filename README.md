@@ -29,6 +29,7 @@ npm install websocket
 - 초기 데이터 베이스 구축
 
 ```
+최초 한번만 실행하면됨
 1. cmd 실행
 2. mysql -u root -p 입력
 3. mysql password 입력
