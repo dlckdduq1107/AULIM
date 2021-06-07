@@ -8,13 +8,15 @@
 Node js 14.17.0 version
 Mysql community 8.0.24 version
 Python 
-Chrome driver version 89 / 9
+Chrome driver version 89 / 91 (사용자 환경에 따라 Chrome driver version을 바꿔줘야 함.)
 
 ```
 
 - npm package install
 ```
 npm install
+
+//nodemon, websocket 설치오류인경우
 npm install nodemon
 npm install websocket
 ```
@@ -51,3 +53,9 @@ nodemon app.js 입력
 서버를 실행 한 후 
 http://localhost:3000/ 로 접속
 ```
+
+### 아주대학교 AULIM TEAM 문의사항
+
+**이재협** : 010-4235-8136, jae213@ajou.ac.kr
+
+**김진수** : 010-7116-8847, wlstnsp1@ajou.ac.kr**
