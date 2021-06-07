@@ -306,7 +306,8 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
     //     }
     //     socket.emit('jsondata', jsonData);
     // })\
-    document.getElementById('rec_button').style.display = 'none';
+    document.getElementById('recommend_button').style.display = 'none';
+    document.getElementById('save_button').style.display = 'inline-block';
 }
 
 function saveDB(){

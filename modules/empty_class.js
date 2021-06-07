@@ -54,15 +54,15 @@ const empty = async(index) => {
               }
           })
       }
-    setTimeout(()=> {for (var num = 1; num <= 7; num++) {
-        $('tr','#time_table').each(function(row){  // #테이블ID값
-            if(row > 0 ){
-            mergeCount = mergeCount + 1;
-            $("tr:eq("+row+") > td:eq("+num+")").attr("rowspan",1);
-            $('td:eq('+num+')',$(this)).show(); //병합될 값들 숨김처리
-            }
-        })
-    }}, 1000)
+    // setTimeout(()=> {for (var num = 1; num <= 7; num++) {
+    //     $('tr','#time_table').each(function(row){  // #테이블ID값
+    //         if(row > 0 ){
+    //         mergeCount = mergeCount + 1;
+    //         $("tr:eq("+row+") > td:eq("+num+")").attr("rowspan",1);
+    //         $('td:eq('+num+')',$(this)).show(); //병합될 값들 숨김처리
+    //         }
+    //     })
+    // }}, 1000)
        
     },1000);//비동기화 문젤 해결을 위한 setTimeout
 

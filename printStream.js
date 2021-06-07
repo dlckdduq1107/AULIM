@@ -5,10 +5,12 @@ var login_flag = 0;
 var return_flag = 0;
 
 socket.on('stream', (data) => {
+    login_flag = 1;
     streams = [];
     var s = data.data;
     streams = s.split('\n');
     var list = document.getElementById('notice_list');
+    console.log(list);
     list.innerHTML='<br>';
     for(var i=0; i<streams.length; i++) {
         list.append(streams[i]);
@@ -28,7 +30,9 @@ socket.on('login', (data)=> {
 });
 
 setTimeout(() => {
-    if (login_flag == 0){
-        document.getElementById('notice_list').remove();  
+        if (login_flag == 0){
+            // console.log(document.getElementById('notice_list'));
+            document.getElementById('notice_list').remove();  
+            // document.getElementById('notice_list').innerHTML = " ";
         }
-}, 50);
+}, 500);

@@ -16,7 +16,7 @@ setTimeout(() => {
     if (login_flag == 1){
         printTable();    
         }
-}, 100);
+}, 500);
 
 function resetTable() {
     
@@ -41,6 +41,7 @@ function printTable() {
           
             })
         })
+        return_flag = 0;
     }).fail(function(jqxhr){
         alert("첫번째 로그인! 시간표를 가져와주세요.");
         return_flag =1;
@@ -86,5 +87,5 @@ function printTable() {
             })
             
         }
-    }, 100);        
+    }, 1000);        
 }

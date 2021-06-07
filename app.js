@@ -160,10 +160,10 @@ app.post('/login_check', (req, res) => {
             args : [id, pw] 
         };
 
-        // PythonShell.run('./scripts/stream.py', options, (err, data) => {
+        PythonShell.run('./scripts/stream.py', options, (err, data) => {
+            
          
-         
-        // });
+        });
         
         
         res.redirect('/')
