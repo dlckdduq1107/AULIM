@@ -11,17 +11,12 @@ Python
 Chrome driver version 89 / 9
 
 ```
+
+- npm package install
 ```
 npm install
 npm install nodemon
 npm install websocket
-```
-
-- 서버 실행
-```
-cmd 에서 AULIM Directory로 접근 후
-
-nodemon app.js
 ```
 
 - Python 인코딩 설정
@@ -41,4 +36,17 @@ nodemon app.js
 
 현재 코드는 database user는 root, password는 1234로 작성되어있음
 다른 user name이나 password를 사용 시 database.js에서 user와 password 변경 필요
+```
+
+- 서버 실행
+```
+cmd 에서 AULIM Directory로 접근 후
+
+nodemon app.js 입력
+```
+
+- 시스템 접속
+```
+서버를 실행 한 후 
+http://localhost:3000/ 로 접속
 ```
