@@ -37,6 +37,68 @@ h1{
     display: flex;
 }
 
+
+.login_box {
+    margin: 0;
+    padding-top: 10px;
+    
+}
+
+.login_form {
+    width: 250px;
+}
+
+.login_form input {
+  /* float: right; */
+  width: 120px;
+}
+
+.login_form label {
+    padding:0px, 5px;
+    width:50px;
+    float: left;
+    text-align: right;
+}
+
+.login_form button {
+    float: right;
+    width: 65px;
+}
+
+.login_button {
+    width:100px;
+    height: 60px;
+    padding-top: 7px;
+    padding-left: 5px;
+}
+
+.login_button button {
+    width:80px;
+}
+
+#logout_button {
+    float: right;
+    display: none;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#crawl_button {
+    float: right;
+    display: none;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.title {
+    text-align: center;
+    
+}
+
+#time_table{
+    padding-left: 500px;
+}
+
 .menu a{
     color: white;
     padding: 1rem 1rem;

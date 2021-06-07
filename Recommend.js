@@ -3,7 +3,7 @@
 var socket = io();
 var id;
 var a = [];
-
+var jsonData;
 socket.on('recMsg', (data)=> {
     console.log(data);
     id = data.userId;
@@ -159,7 +159,7 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
             data[i].activities = fortest[i];
             testArray.push(data[i]);
         }
-        var jsonData = JSON.stringify(testArray, null, 4);
+        jsonData = JSON.stringify(testArray, null, 4);
         
 
 
@@ -305,7 +305,8 @@ function Recommend(){ // 추천시간표에 추가해야할 활동내용
             
     //     }
     //     socket.emit('jsondata', jsonData);
-    // })
+    // })\
+    document.getElementById('rec_button').style.display = 'none';
 }
 
 function saveDB(){

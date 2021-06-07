@@ -1,115 +1,169 @@
 [
     {
         "activities": {
-            "name": "북한사회의 이해",
+            "name": "컴퓨터그래픽스",
             "long": 3,
             "classdate": 1,
-            "start": 16,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "북한사회의 이해",
-            "long": 3,
-            "classdate": 1,
-            "start": 16,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "북한사회의 이해",
-            "long": 3,
-            "classdate": 1,
-            "start": 16,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "소프트웨어공학",
-            "long": 3,
-            "classdate": 2,
-            "start": 7,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "소프트웨어공학",
-            "long": 3,
-            "classdate": 2,
-            "start": 7,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "소프트웨어공학",
-            "long": 3,
-            "classdate": 2,
-            "start": 7,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "북한사회의 이해",
-            "long": 3,
-            "classdate": 2,
-            "start": 16,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "북한사회의 이해",
-            "long": 3,
-            "classdate": 2,
-            "start": 16,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "북한사회의 이해",
-            "long": 3,
-            "classdate": 2,
-            "start": 16,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "활동추가1",
-            "long": 3,
-            "classdate": 3,
             "start": 4,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "활동추가1",
+            "name": "컴퓨터그래픽스",
             "long": 3,
-            "classdate": 3,
+            "classdate": 1,
             "start": 4,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "활동추가1",
+            "name": "컴퓨터그래픽스",
             "long": 3,
-            "classdate": 3,
+            "classdate": 1,
             "start": 4,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "운영체제",
+            "name": "데이터베이스",
+            "long": 3,
+            "classdate": 1,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "long": 3,
+            "classdate": 1,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "long": 3,
+            "classdate": 1,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "long": 3,
+            "classdate": 2,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "long": 3,
+            "classdate": 2,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "long": 3,
+            "classdate": 2,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 2,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 2,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 2,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 2,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 2,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "long": 3,
+            "classdate": 2,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "long": 3,
+            "classdate": 3,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "long": 3,
+            "classdate": 3,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "long": 3,
+            "classdate": 3,
+            "start": 7,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본어1",
             "long": 3,
             "classdate": 3,
             "start": 10,
@@ -118,7 +172,7 @@
     },
     {
         "activities": {
-            "name": "운영체제",
+            "name": "일본어1",
             "long": 3,
             "classdate": 3,
             "start": 10,
@@ -127,7 +181,7 @@
     },
     {
         "activities": {
-            "name": "운영체제",
+            "name": "일본어1",
             "long": 3,
             "classdate": 3,
             "start": 10,
@@ -136,28 +190,109 @@
     },
     {
         "activities": {
-            "name": "활동추가1",
+            "name": "기계학습",
             "long": 3,
-            "classdate": 4,
-            "start": 15,
+            "classdate": 3,
+            "start": 16,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "활동추가1",
+            "name": "기계학습",
             "long": 3,
-            "classdate": 4,
-            "start": 15,
+            "classdate": 3,
+            "start": 16,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "활동추가1",
+            "name": "기계학습",
+            "long": 3,
+            "classdate": 3,
+            "start": 16,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
             "long": 3,
             "classdate": 4,
-            "start": 15,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 4,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "long": 3,
+            "classdate": 4,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터그래픽스",
+            "long": 3,
+            "classdate": 4,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터그래픽스",
+            "long": 3,
+            "classdate": 4,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터그래픽스",
+            "long": 3,
+            "classdate": 4,
+            "start": 4,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "long": 3,
+            "classdate": 5,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "long": 3,
+            "classdate": 5,
+            "start": 1,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "long": 3,
+            "classdate": 5,
+            "start": 1,
             "alarm": "Y"
         }
     },
@@ -190,7 +325,7 @@
     },
     {
         "activities": {
-            "name": "운영체제",
+            "name": "일본어1",
             "long": 3,
             "classdate": 5,
             "start": 10,
@@ -199,7 +334,7 @@
     },
     {
         "activities": {
-            "name": "운영체제",
+            "name": "일본어1",
             "long": 3,
             "classdate": 5,
             "start": 10,
@@ -208,7 +343,7 @@
     },
     {
         "activities": {
-            "name": "운영체제",
+            "name": "일본어1",
             "long": 3,
             "classdate": 5,
             "start": 10,
@@ -217,100 +352,55 @@
     },
     {
         "activities": {
-            "name": "사고와 학습의 심리학",
-            "long": 2,
+            "name": "기계학습",
+            "long": 3,
             "classdate": 5,
-            "start": 13,
+            "start": 16,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "사고와 학습의 심리학",
-            "long": 2,
+            "name": "기계학습",
+            "long": 3,
             "classdate": 5,
-            "start": 13,
+            "start": 16,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "사고와 학습의 심리학",
-            "long": 2,
+            "name": "기계학습",
+            "long": 3,
             "classdate": 5,
-            "start": 15,
+            "start": 16,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "사고와 학습의 심리학",
-            "long": 2,
-            "classdate": 5,
-            "start": 15,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "사고와 학습의 심리학",
-            "long": 2,
-            "classdate": 5,
-            "start": 17,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "사고와 학습의 심리학",
-            "long": 2,
-            "classdate": 5,
-            "start": 17,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "활동추가1",
-            "long": 2,
-            "classdate": 6,
-            "start": 19,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "활동추가1",
-            "long": 2,
-            "classdate": 6,
-            "start": 19,
-            "alarm": "Y"
-        }
-    },
-    {
-        "activities": {
-            "name": "겹치기2",
+            "name": "수학1",
             "long": 3,
             "classdate": 1,
-            "start": 1,
+            "start": 11,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "겹치기2",
+            "name": "수학1",
             "long": 3,
             "classdate": 1,
-            "start": 1,
+            "start": 11,
             "alarm": "Y"
         }
     },
     {
         "activities": {
-            "name": "겹치기2",
+            "name": "수학1",
             "long": 3,
             "classdate": 1,
-            "start": 1,
+            "start": 11,
             "alarm": "Y"
         }
     }

@@ -69,13 +69,26 @@
                             login_box.style.display = 'none';
                             logout_button.style.display = 'block'
                             crawl_button.style.display = 'block';
+
+                            var newDiv = document.createElement("div");
+                            newDiv.id = 'newDiv';
+                            var loginText = document.createTextNode(`${id.userId}님 환영합니다!`);
+                            newDiv.appendChild(loginText);
+                            var currentDiv = document.getElementById("login_box");
+                            newDiv.style['padding-top'] = '21px';
+                            // document.body.insertBefore(newDiv, currentDiv);
+                            currentDiv.parentNode.insertBefore(newDiv, currentDiv);
                         });
                         
                         socket.on('logout', () => {
                             login_box.style.display = 'block';
                             logout_button.style.display = 'none';
                             crawl_button.style.display = 'none';
+                            var newDiv = document.getElementById('newDiv');
+                            newDiv.parentNode.removeChild(newDiv);
                         });
+
+                        
  
                     </script>
                   </ul>   
@@ -83,7 +96,7 @@
           </div>
        </header>
        <div class="title">
-         <div style="font-size: 3rem;">시간표</div>
+         <div style="font-size: 3rem;" id="time_table_text">시간표</div>
          
        </div>
        <section class="content">

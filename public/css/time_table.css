@@ -111,7 +111,9 @@ a{
     margin-left: 20px;
     margin-top: 20px;
 }
-
+#time_table_text {
+    padding-left: 500px;
+}
 footer{
     border-top:1px solid gray;
     padding:20px;

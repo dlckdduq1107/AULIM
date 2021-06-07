@@ -68,7 +68,6 @@ a{
 
 .login_form {
     width: 250px;
-    height: 100px;
 }
 
 .login_form input {
@@ -97,6 +96,24 @@ a{
 
 .login_button button {
     width:80px;
+}
+
+#memo_text {
+    padding-left: 500px;
+}
+
+#logout_button {
+    float: right;
+    display: none;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+#crawl_button {
+    float: right;
+    display: none;
+    margin-left: 20px;
+    margin-top: 20px;
 }
 
 

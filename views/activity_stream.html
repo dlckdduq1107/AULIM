@@ -8,20 +8,73 @@
 </head>
 <body>
     <div class="container">
-       <header>
-           <div class="top_bar">
-            <h1><a href="/" id="logo">AULIM</a></h1>
-              <nav>
-                  <ul class="menu">
-                    <li><a href="/activity_stream">스트림</a></li>
-                    <li><a href="/">시간표</a></li>
-                    <li><a href="/Group">공강시간</a></li>
-                    <li><a href="/schedule">계획표 추천</a></li>
-                    <li><a href="/memo">강의 메모</a></li>
-                  </ul>
-              </nav>
-          </div>
-       </header>
+        <header>
+            <div class="top_bar">
+               <h1><a href="/" id="logo">AULIM</a></h1>
+               <nav>
+                   <ul class="menu">
+                     <li><a href="/activity_stream">스트림</a></li>
+                     <li><a href="/">시간표</a></li>
+                     <li><a href="/Group">공강시간</a></li>
+                     <li><a href="/schedule">계획표 추천</a></li>
+                     <li><a href="/memo">강의 메모</a></li>
+ 
+                     <div class="login_box" id="login_box">
+                         <form class="login_form" action="login_check" method="post"> 
+                             <label for="username">ID</label>
+                             <button type="submit">Login</button>
+                             
+                             <input id="user_id" name="userid" type="text"/>
+                             
+                             <label for="userpw">PW</label>
+                             <input id="user_pw" name="userpw" type="password"/>
+                             <button type="button" onclick="location.href='/register'">Register</button>
+                         </form>
+                         
+                     </div>
+                     <form id="logout_button" action="logout" method="post">
+                         <button type="submit">Logout</button>
+                     </form>
+                     <form action="crawl_time_table" method="post">
+                         <button type="submit" id="crawl_button">시간표 가져오기</button>
+                     </form>
+ 
+                     <script>
+                         var socket = io();
+                         var login_box = document.getElementById('login_box');
+                         var logout_button = document.getElementById('logout_button');
+                         var crawl_button = document.getElementById('crawl_button');
+ 
+                         socket.on('login', (id) => {
+                             login_box.style.display = 'none';
+                             logout_button.style.display = 'block'
+                             crawl_button.style.display = 'block';
+ 
+                             var newDiv = document.createElement("div");
+                             newDiv.id = 'newDiv';
+                             var loginText = document.createTextNode(`${id.userId}님 환영합니다!`);
+                             newDiv.appendChild(loginText);
+                             var currentDiv = document.getElementById("login_box");
+                             newDiv.style['padding-top'] = '21px';
+                             // document.body.insertBefore(newDiv, currentDiv);
+                             currentDiv.parentNode.insertBefore(newDiv, currentDiv);
+                         });
+                         
+                         socket.on('logout', () => {
+                             login_box.style.display = 'block';
+                             logout_button.style.display = 'none';
+                             crawl_button.style.display = 'none';
+                             var newDiv = document.getElementById('newDiv');
+                            newDiv.parentNode.removeChild(newDiv);
+                         });
+ 
+                         
+  
+                     </script>
+                   </ul>   
+               </nav>
+           </div>
+        </header>
     </div>
     
     <script src="notice.js"></script>
@@ -29,11 +82,9 @@
     <div class="notice_list" id="notice_list">
         <!--최근 공지사항들을 모와놓음-->
 
-
+        <br/>
         
         <br>
-        <input type="button" value="추가" onclick="add_sub()">
-
         <div class="new_notice">
             
         </div>

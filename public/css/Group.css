@@ -56,6 +56,11 @@ h1{
     float: left;
     padding: 5px, 0px, 15px, 15px;
 }
+
+#group_text {
+    padding-left: 700px;
+}
+
 .menu{
     list-style-type: none;
     margin: 0;

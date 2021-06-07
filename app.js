@@ -57,7 +57,7 @@ app.get('/', (req, res) => {
 
 
 app.get('/activity_stream', (req, res) => {
-    if(req.session.user.id) {
+    if(req.session.user) {
         fs.readFile(`./data/streams/stream_${req.session.user.id}.txt`, 'utf-8', (err, data) => {
             io.on('connection', (socket) => {
                 socket.emit('stream', {data : data});
@@ -95,7 +95,7 @@ app.post('/login_check', (req, res) => {
     let pw = req.body.userpw;
     
     if(req.session.user) {
-        console.log('user logged in already.');
+        // console.log('user logged in already.');
         res.redirect('/');
     }
     else {
@@ -104,13 +104,13 @@ app.post('/login_check', (req, res) => {
             pw: pw,
             name: 'asdf',
             authorized: true
-        };
-        console.log('made session')
-        console.log(`id : ${id}`);
+        }; 
+        // console.log('made session')
+        // console.log(`id : ${id}`);
 
         
-        io.on('connection', (socket) => {
-            console.log('socket connected');
+        io.on('connection', (socket) => { 
+            // console.log('socket connected');
             socket.emit('recMsg', {userId : id});
             socket.emit('recMsg2', {userId : id});
 
@@ -121,7 +121,7 @@ app.post('/login_check', (req, res) => {
                         console.log(err);
                     }
                 })
-            });
+            });     
             socket.on('addact',(data)=>{
                 fs.writeFile("timetable-added.json", data, function(err){
                     if(err){
@@ -131,7 +131,7 @@ app.post('/login_check', (req, res) => {
             });
             socket.emit('login', {userId : id});
             socket.on('logout', () => {
-                console.log('user logged out.');
+                // console.log('user logged out.');
             })
             socket.on('query',(data)=>{
                 conn.query(data);
@@ -145,7 +145,7 @@ app.post('/login_check', (req, res) => {
                 if(!err){
                     for(var i = 0; i< rows.length ; i++){
                         a[i] = new act(rows[i].name, rows[i].classdate, rows[i].start, rows[i].long, 'Y');
-                        console.log(a[i]);
+                        // console.log(a[i]);
                     }
                     //var jsonData = JSON.stringify(testArray, null, 4);
                 }else{
@@ -160,14 +160,14 @@ app.post('/login_check', (req, res) => {
             args : [id, pw] 
         };
 
-        PythonShell.run('./scripts/stream.py', options, (err, data) => {
+        // PythonShell.run('./scripts/stream.py', options, (err, data) => {
          
          
-        });
+        // });
         
         
         res.redirect('/')
-    }   
+    }    
 });
 
 
@@ -213,14 +213,6 @@ app.post('/logout', (req, res) => {
         console.log('user already logged out.');
         res.redirect('/');
     }
-});
-
-app.get('/scrap', (req, res) => {
-    PythonShell.run('./scripts/sele.py', null, (err, result) => {
-        console.log('run');
-    });
-
-    res.redirect('time_table.html');
 });
 
 let memoIndex = 0;
