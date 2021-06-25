@@ -1,3 +1,5 @@
+// 수업시간표 출력
+
 var socket = io();
 var id="";
 var login_flag = 0;
@@ -18,9 +20,7 @@ setTimeout(() => {
         }
 }, 500);
 
-function resetTable() {
-    
-}
+
 
 function printTable() {
     class act{

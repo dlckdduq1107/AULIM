@@ -1,3 +1,4 @@
+# 활동 스트림 크롤링
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By

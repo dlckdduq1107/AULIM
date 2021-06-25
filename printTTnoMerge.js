@@ -1,3 +1,4 @@
+// 시간표 출력(병합 없는 버전)
 var socket = io();
 var id;
 

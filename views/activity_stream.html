@@ -45,7 +45,7 @@
                          var logout_button = document.getElementById('logout_button');
                          var crawl_button = document.getElementById('crawl_button');
  
-                         socket.on('login', (id) => {
+                         socket.on('login', (id) => { //로그인 기능
                              login_box.style.display = 'none';
                              logout_button.style.display = 'block'
                              crawl_button.style.display = 'block';
@@ -60,7 +60,7 @@
                              currentDiv.parentNode.insertBefore(newDiv, currentDiv);
                          });
                          
-                         socket.on('logout', () => {
+                         socket.on('logout', () => {// 로그아웃
                              login_box.style.display = 'block';
                              logout_button.style.display = 'none';
                              crawl_button.style.display = 'none';
@@ -80,7 +80,7 @@
     <script src="notice.js"></script>
 
     <div class="notice_list" id="notice_list">
-        <!--최근 공지사항들을 모와놓음-->
+        <!--최근 공지사항들을 모아놓음-->
 
         <br/>
         

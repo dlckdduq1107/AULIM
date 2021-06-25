@@ -1,3 +1,5 @@
+//데이터 베이스
+
 var mysql = require('mysql');
 var db_info = {
 	host: 'localhost',

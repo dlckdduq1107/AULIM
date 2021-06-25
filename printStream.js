@@ -1,3 +1,4 @@
+// 활동 스트림 화면 출력
 var socket = io();
 var streams = [];
 var id="";

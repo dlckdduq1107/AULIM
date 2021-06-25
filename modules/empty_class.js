@@ -1,3 +1,4 @@
+// 공강시간 추출 기능을 위한 함수
 
 const empty = async(index) => {
    for (var i = 1; i <= index; i++) {//인원수만큼 반복
@@ -12,7 +13,7 @@ const empty = async(index) => {
                 var rowcell = value.start;
                 
                 //value.long[j]=long
-                for(var i=0;i<long;i++){
+                for(var i=0;i<long;i++){//수업시간표 부분을 빈칸으로 바꿔줌
                     var cells = rows[rowcell+i].getElementsByTagName("td");
                     cells[colcell].innerHTML = " ";
                     cells[colcell].style.backgroundColor = "#ffffff";

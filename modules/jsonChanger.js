@@ -1,4 +1,4 @@
-
+//제이슨->제이슨(설정한 형태에 맞도록)
 
 function change(data) {
     var a = [];
