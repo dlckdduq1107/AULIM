@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+<!--    <meta name="viewport" content="width=device-width,initial-scale=1">-->
+    <title>time_table</title>
+    <link rel="stylesheet" href="/css/time_table.css">
+    <!--     제이쿼리 사용하기 위한 불러오기(?)-->
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="../printTT.js"></script>
+    <script src="../Recommend.js"></script>
+    <!-- <script src="../modules/test.js"></script> -->
+
+    <script>
+        // function actSubmit(){
+        //     var queryString=$('#act_plus').serializeArray();
+        //     var object={};
+        //     for(var i=0;i<queryString.length;i++){
+        //         object[queryString[i]['name']]=queryString[i]['value'];
+        //     }
+        //     object=JSON.stringify(object);
+        //     $('#rtn').html(object);
+        //     alert(object);
+
+        // }
+
+         
+    </script>
+</head>
+        <header>
+            <div class="top_bar">
+            <h1><a href="/" id="logo">AULIM</a></h1>
+            <nav>
+                <ul class="menu">
+                    <li><a href="/activity_stream">스트림</a></li>
+                    <li><a href="/">시간표</a></li>
+                    <li><a href="/Group">공강시간</a></li>
+                    <li><a href="/schedule">계획표 추천</a></li>
+                    <li><a href="/memo">강의 메모</a></li>
+
+                    <div class="login_box" id="login_box">
+                        <form class="login_form" action="login_check" method="post"> 
+                            <label for="username">ID</label>
+                            <button type="submit">Login</button>
+                            
+                            <input id="user_id" name="userid" type="text"/>
+                            
+                            <label for="userpw">PW</label>
+                            <input id="user_pw" name="userpw" type="password"/>
+                            <button type="button" onclick="location.href='/register'">Register</button>
+                        </form>
+                        
+                    </div>
+                    <form id="logout_button" action="logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
+                    <form action="crawl_time_table" method="post">
+                        <button type="submit" id="crawl_button">시간표 가져오기</button>
+                    </form>
+
+                    <script>
+                        var socket = io();
+                        var login_box = document.getElementById('login_box');
+                        var logout_button = document.getElementById('logout_button');
+                        var crawl_button = document.getElementById('crawl_button');
+
+                        socket.on('login', (id) => {
+                            login_box.style.display = 'none';
+                            logout_button.style.display = 'block'
+                            crawl_button.style.display = 'block';
+
+                            var newDiv = document.createElement("div");
+                            newDiv.id = 'newDiv';
+                            var loginText = document.createTextNode(`${id.userId}님 환영합니다!`);
+                            newDiv.appendChild(loginText);
+                            var currentDiv = document.getElementById("login_box");
+                            newDiv.style['padding-top'] = '21px';
+                            // document.body.insertBefore(newDiv, currentDiv);
+                            currentDiv.parentNode.insertBefore(newDiv, currentDiv);
+                        });
+                        
+                        socket.on('logout', () => {
+                            login_box.style.display = 'block';
+                            logout_button.style.display = 'none';
+                            crawl_button.style.display = 'none';
+                            var newDiv = document.getElementById('newDiv');
+                            newDiv.parentNode.removeChild(newDiv);
+                        });
+
+                        
+
+                    </script>
+                </ul>   
+            </nav>
+        </div>
+        </header>
+       <div class="title">
+         <div style="font-size: 3rem;">학습 계획표</div>
+         <div class="button">
+             <!-- <div><input type="radio" name="table" value="base" checked="checked"> 기본 시간표 보기</div>
+              <div><input type="radio" name="table" value="add"> 추가일정 포함한 시간표 보기</div> -->
+         </div>
+       </div>
+       <section class="content">
+         <nav>
+             
+         </nav>
+          <main>
+            <div class="main_table">
+                <table id="time_table">
+                   <colgroup>
+                       <col width="*" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                       <col width="15%" />
+                   </colgroup>
+                   
+                    <thead>
+                       <tr>
+                           <th>교시/요일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>   
+                       </tr>  
+                    </thead>
+
+                    <tbody>
+                       <tr>
+                           <td>09:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>09:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>10:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>10:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>11:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>11:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>12:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>12:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>13:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>13:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>14:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>14:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>15:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>15:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>16:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>16:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>17:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>17:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>18:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>18:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>19:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>19:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>20:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>20:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>21:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>21:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>22:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>22:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                        <tr>
+                           <td>23:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>23:30</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr>
+                           <td>24:00</td><td></td><td></td><td></td><td></td><td></td><td></td>
+                       </tr>
+                       <tr id="last_content" >
+                           <td></td><td> </td><td> </td><td> </td><td> </td><td> </td><td> </td>
+                       </tr>
+                    </tbody>
+    
+                </table>
+            </div>
+    
+          </main>
+          
+          <aside>
+
+              <form name="act_plus" id="act_plus">
+                  <fieldset style="width: 250px">
+                      <legend>할당 시간 설정</legend>
+                        활동명: <input type="text" id="act_name"> <br><br>
+                        시간:
+                        <select id="time_input">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                        </select> <br>
+                      <input type="button" value="추가하기" onclick="actSubmit1()">
+                  </fieldset>
+              </form>
+              <br>
+              추가할 학습 활동:<div name="rtn" id="rtn"></div>
+              <button onclick="Recommend()", id = "recommend_button">추천받기</button>
+              <button onclick="saveDB()", id="save_button", style="display: none;">저장</button>
+              <button onclick="pageReload()">취소</button>
+
+          </aside>
+           
+          
+       </section>
+       <footer>
+           AULIM
+       </footer>
+   </div>
+    
+</body>
+</html>

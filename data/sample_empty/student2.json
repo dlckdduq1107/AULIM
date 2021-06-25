@@ -1,0 +1,128 @@
+[
+    {
+        "activities": {
+            "name": "기계학습",
+            "classdate": 3,
+            "start": 16,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "기계학습",
+            "classdate": 5,
+            "start": 16,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "classdate": 1,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "데이터베이스",
+            "classdate": 3,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "classdate": 2,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "드로잉 연습",
+            "classdate": 5,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "classdate": 2,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "소프트웨어공학",
+            "classdate": 5,
+            "start": 7,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본어1",
+            "classdate": 3,
+            "start": 10,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "일본어1",
+            "classdate": 5,
+            "start": 10,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터그래픽스",
+            "classdate": 1,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터그래픽스",
+            "classdate": 4,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "classdate": 2,
+            "start": 4,
+            "long": 3,
+            "alarm": "Y"
+        }
+    },
+    {
+        "activities": {
+            "name": "컴퓨터통신",
+            "classdate": 4,
+            "start": 1,
+            "long": 3,
+            "alarm": "Y"
+        }
+    }
+]
