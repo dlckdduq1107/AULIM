@@ -67,7 +67,15 @@ http://localhost:3000/ 로 접속
 
 ## Contact
 이창엽 : dlckdduq97@gmail.com
+
+
 신승헌 : gody8756@ajou.ac.kr
+
+
 이재협 : jae213@ajou.ac.kr
+
+
 김진수 : wlstnsp1@ajou.ac.kr
+
+
 양준길 : wnsrlf0721@ajou.ac.kr
