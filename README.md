@@ -19,13 +19,15 @@
 Node js 14.17.0 version
 Mysql community 8.0.24 version
 Python 
-Chrome driver version 89 / 9
+Chrome driver version 89 / 91 (사용자 환경에 따라 Chrome driver version을 바꿔줘야 함.)
 
 ```
 
 - 모든 dependency 설치
 ```
 npm install
+
+//nodemon, websocket 설치오류인경우
 npm install nodemon
 npm install websocket
 ```
@@ -40,6 +42,7 @@ npm install websocket
 - 초기 데이터 베이스 구축
 
 ```
+최초 한번만 실행하면됨
 1. cmd 실행
 2. mysql -u root -p 입력
 3. mysql password 입력
