@@ -1,4 +1,4 @@
-# aulim(아주대학교 학교생활 )
+# aulim(아주대학교 학교생활 매니저 )
 
 ## Introduction
 
